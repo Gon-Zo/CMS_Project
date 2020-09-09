@@ -1,0 +1,3 @@
+rootProject.name = 'CMS_Project'
+
+include('api')
