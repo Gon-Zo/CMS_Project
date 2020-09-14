@@ -1,3 +1,4 @@
 rootProject.name = 'CMS_Project'
 
-include('api' , 'webapp')
+include 'api'
+include 'webapp'

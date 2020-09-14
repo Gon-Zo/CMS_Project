@@ -1,8 +1,17 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslVersion}"
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version "${springVersion}"
     id 'io.spring.dependency-management' version "${dependencyManagement}"
     id 'java'
 }
+
+apply from:'gradle/utils.gradle'
+apply from:'gradle/querydsl.gradle'
 
 group = 'com.gonzo'
 version = '0.0.1-SNAPSHOT'
@@ -22,7 +31,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
@@ -30,18 +38,17 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'org.springframework.security:spring-security-test'
-    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
-    implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasyptVersion}"
-}
 
-sourceSets {
-    main {
-        java {
-            srcDirs= ['src/main/java']
-        }
-    }
+    implementation "org.springframework.security:spring-security-core:5.3.4.RELEASE"
+
 }
 
 test {
     useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    scanForTestClasses = false
+    include "**/*Test.class"
+}
+

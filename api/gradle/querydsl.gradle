@@ -1,0 +1,40 @@
+apply plugin: "com.ewerk.gradle.plugins.querydsl"
+
+dependencies {
+    implementation "com.querydsl:querydsl-jpa"
+    implementation "com.querydsl:querydsl-apt"
+    implementation 'org.jetbrains:annotations:15.0'
+}
+
+def querydslSrcDir = "$buildDir/generated/querydsl"
+
+//def querydslSrcDir = 'src/main/generated'
+
+querydsl {
+    library = "com.querydsl:querydsl-apt:${querydslAptVersion}"
+    jpa = true
+    querydslDefault = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src/main/java","${querydslSrcDir}"]
+        }
+    }
+}
+
+clean {
+    delete file(querydslSrcDir)
+}
+
+
