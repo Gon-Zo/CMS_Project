@@ -1,0 +1,14 @@
+
+${AnsiColor.BRIGHT_RED}  $$$$$$\  ${AnsiColor.BRIGHT_CYAN} $$\      $$\   $$$$$$\
+${AnsiColor.BRIGHT_RED} $$  __$$\ ${AnsiColor.BRIGHT_CYAN} $$$\    $$$ | $$  __$$\
+${AnsiColor.BRIGHT_RED} $$ /  \__|${AnsiColor.BRIGHT_CYAN} $$$$\  $$$$ | $$ /  \__|
+${AnsiColor.BRIGHT_RED} $$ |      ${AnsiColor.BRIGHT_CYAN} $$\$$\$$ $$ | \$$$$$$\
+${AnsiColor.BRIGHT_RED} $$ |      ${AnsiColor.BRIGHT_CYAN} $$ \$$$  $$ |  \____$$\
+${AnsiColor.BRIGHT_RED} $$ |  $$\ ${AnsiColor.BRIGHT_CYAN} $$ |\$  /$$ | $$\   $$ |
+${AnsiColor.BRIGHT_RED} \$$$$$$  |${AnsiColor.BRIGHT_CYAN} $$ | \_/ $$ | \$$$$$$  |
+${AnsiColor.BRIGHT_RED}  \______/ ${AnsiColor.BRIGHT_CYAN} \__|     \__|  \______/
+
+
+${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
+:: https://github.com/Gon-Zo/CMS_Project ::${AnsiColor.DEFAULT}
+
