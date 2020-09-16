@@ -13,6 +13,6 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
     testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
 
-    implementation "org.hibernate:hibernate-validator:6.1.0.Final"
+    implementation "org.hibernate:hibernate-validator:${hibernate_validator_version}"
 
 }
