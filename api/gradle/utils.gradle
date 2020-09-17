@@ -1,17 +1,17 @@
 dependencies {
 
-    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
-    implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasyptVersion}"
+    implementation "org.apache.commons:commons-lang3:${commons_lang3_version}"
+    implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasypt_version}"
 
     // Lombok
-    compileOnly "org.projectlombok:lombok:${lombokVersion}"
-    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-    implementation("org.projectlombok:lombok:${lombokVersion}")
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    implementation("org.projectlombok:lombok:${lombok_version}")
 
     // Lombok
-    testImplementation("org.projectlombok:lombok:${lombokVersion}")
-    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
-    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testImplementation("org.projectlombok:lombok:${lombok_version}")
+    testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
+    testCompileOnly("org.projectlombok:lombok:${lombok_version}")
 
     implementation "org.hibernate:hibernate-validator:${hibernate_validator_version}"
 

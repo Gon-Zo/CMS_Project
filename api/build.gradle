@@ -1,12 +1,12 @@
 buildscript {
     dependencies {
-        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslVersion}"
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydsl_version}"
     }
 }
 
 plugins {
-    id 'org.springframework.boot' version "${springVersion}"
-    id 'io.spring.dependency-management' version "${dependencyManagement}"
+    id 'org.springframework.boot' version "${spring_version}"
+    id 'io.spring.dependency-management' version "${dependency_management}"
     id 'java'
 }
 
@@ -40,7 +40,6 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 
     implementation "org.springframework.security:spring-security-core:5.3.4.RELEASE"
-
 }
 
 test {
@@ -51,4 +50,3 @@ tasks.withType(Test) {
     scanForTestClasses = false
     include "**/*Test.class"
 }
-

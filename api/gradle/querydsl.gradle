@@ -8,10 +8,8 @@ dependencies {
 
 def querydslSrcDir = "$buildDir/generated/querydsl"
 
-//def querydslSrcDir = 'src/main/generated'
-
 querydsl {
-    library = "com.querydsl:querydsl-apt:${querydslAptVersion}"
+    library = "com.querydsl:querydsl-apt:${querydsl_apt_version}"
     jpa = true
     querydslDefault = true
     querydslSourcesDir = querydslSrcDir
@@ -36,5 +34,3 @@ sourceSets {
 clean {
     delete file(querydslSrcDir)
 }
-
-

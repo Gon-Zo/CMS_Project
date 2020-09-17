@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: ENC(oTWRp5o3UuVw6PZMiAuGQJ/faFUR4KZH6dKXCPc+sXbZeHAsdzD/fV68eihBazX+y40kRfySwovADPkBDHZo5wDAvYMFmO919DfxDYfwaY+Zy+MpLp/+N9Vo0+UpLKBl)
+    hikari:
+      username: ENC(BR7m+GQPJDe5wRhCv6u6ukgFzWjL7RKc)
+      password: ENC(UOe7ol2Z9kJgLmAPTIRHcg==)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    # JPA SQL log
+    properties:
+      hibernate.format_sql: true
+      hibernate.jdbc.lob.non_contextual_creation: true
+
+# SQL show parameter
+logging:
+  level:
+    org:
+      hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+server:
+  port: 7000
+

@@ -46,8 +46,9 @@ public class Account extends BaseEntity {
     private Set<Authority> authorities = new HashSet<>();
 
     @Builder
-    public Account(String email, String nickName, List<Post> postList) {
+    public Account(String email, String password, String nickName, List<Post> postList) {
         this.email = email;
+        this.password = password;
         this.nickName = nickName;
         this.postList = postList;
     }
