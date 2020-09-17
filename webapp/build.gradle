@@ -1,0 +1,14 @@
+
+plugins {
+    id "com.moowork.node" version "${node_plugin_version}"
+}
+
+node {
+    version = "${node_version}"
+    npmVersion = "${npm_version}"
+    download = true
+}
+
+repositories {
+    mavenCentral()
+}
