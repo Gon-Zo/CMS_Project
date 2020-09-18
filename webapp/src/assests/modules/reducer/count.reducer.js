@@ -1,4 +1,4 @@
-import {FAILURE, REQUEST, SUCCESS} from '../action-type.util'
+import {FAILURE, REQUEST, SUCCESS} from '../../utils/action-type.util'
 
 export const ACTION_TYPE = {
     UPDATE_COUNT: "count/UPDATE_COUNT",
@@ -12,8 +12,6 @@ const initState = {
     updateFailure: false,
     entries : 0,
 }
-
-// export type CountState = Readonly<typeof initState>;
 
 export default (state = initState, action) => {
 
@@ -49,4 +47,3 @@ export default (state = initState, action) => {
     }
 
 }
-

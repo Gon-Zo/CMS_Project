@@ -1,0 +1,70 @@
+.bg-ebony{
+  background-color: $Ebony;
+}
+
+.ft-color-turquoiseBlue {
+  color: $TurquoiseBlue !important;
+}
+
+.ft-size-100 {
+  font-size: 1.5vw;
+}
+
+.app-header {
+
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  .navbar-toggler{
+    border-color: #c9c9c9;
+  }
+
+  .App-logo.App-logo-size {
+    width: 75px;
+    height: 75px;
+  }
+
+  .header-name {
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .search-form {
+    display: block;
+
+    .form-control{
+      background-color: rgba(0, 0, 0, .5);
+      border-color: transparent;
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+
+    .header-name {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    .App-logo.App-logo-size {
+      width: 45px;
+      height: 45px;
+    }
+
+    .search-form {
+      display: none;
+    }
+
+  }
+
+}
+
+.container-fluid.pd-none {
+  padding: 0px;
+}
+
+.test{
+  background-color: #f00;
+}

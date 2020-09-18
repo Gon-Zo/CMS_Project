@@ -1,4 +1,4 @@
-import {ACTION_TYPE} from "./count.reducer";
+import {ACTION_TYPE} from "../reducer/count.reducer";
 
 export const updateCount = (payload) => async dispatch =>{
     return await dispatch({

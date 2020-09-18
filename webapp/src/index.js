@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './assests/styles/app/_index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './assests/shared/utils/fontawesome'
+import './assests/utils/fontawesome.util'
 import logger from 'redux-logger'
 import {createStore , applyMiddleware} from "redux";
-import {rootReducer} from '../src/assests/shared/reducers'
+import {rootReducer} from '../src/assests/modules/reducer'
 import {Provider} from 'react-redux'
 
 const store = createStore(rootReducer, applyMiddleware(logger))
