@@ -23,13 +23,7 @@ configurations {
     querydsl.extendsFrom compileClasspath
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ["src/main/java","${querydslSrcDir}"]
-        }
-    }
-}
+sourceSets.main.java.srcDirs = ["src/main/java","${querydslSrcDir}"]
 
 clean {
     delete file(querydslSrcDir)
