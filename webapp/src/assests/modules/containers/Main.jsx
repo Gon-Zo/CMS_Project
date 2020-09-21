@@ -7,6 +7,5 @@ export default () => {
                 Main
             </span>
         </div>
-
     )
 }

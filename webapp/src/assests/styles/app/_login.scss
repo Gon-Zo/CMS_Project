@@ -1,0 +1,27 @@
+.login-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $Ebony;
+
+  .login-box {
+
+
+    .login-header{
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      span{
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 10px;
+      }
+
+    }
+
+  }
+
+}

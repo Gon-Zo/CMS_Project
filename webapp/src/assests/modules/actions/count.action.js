@@ -1,8 +1,9 @@
 import {ACTION_TYPE} from "../reducer/count.reducer";
+import {SUCCESS} from "../../utils/action-type.util";
 
-export const updateCount = (payload) => async dispatch =>{
-    return await dispatch({
-        type: ACTION_TYPE.UPDATE_COUNT,
+export const updateCount = payload => {
+    return ({
+        type: SUCCESS(ACTION_TYPE.UPDATE_COUNT),
         payload: payload
     })
 }

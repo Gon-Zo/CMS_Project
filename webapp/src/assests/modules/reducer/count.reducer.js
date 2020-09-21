@@ -16,20 +16,6 @@ const initState = {
 export default (state = initState, action) => {
 
     switch (action.type) {
-        case REQUEST(ACTION_TYPE.UPDATE_COUNT):
-            return {
-                ...initState,
-                errorMessage: null,
-                updateSuccess: false,
-                loading: true
-            };
-        case FAILURE(ACTION_TYPE.UPDATE_COUNT):
-            return {
-                ...initState,
-                loading: false,
-                updateSuccess: false,
-                updateFailure: true
-            };
         case SUCCESS(ACTION_TYPE.UPDATE_COUNT):
             return {
                 ...initState,
@@ -38,12 +24,21 @@ export default (state = initState, action) => {
                 updateFailure: false,
                 entries: action.payload
             };
+        case FAILURE(ACTION_TYPE.UPDATE_COUNT):
+            return {
+               ...initState ,
+               loading: true,
+            }
+
         case ACTION_TYPE.RESET:
             return {
                 ...initState
             }
+
         default:
             return state
     }
 
 }
+
+
