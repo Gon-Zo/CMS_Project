@@ -1,4 +1,4 @@
-import {FAILURE, REQUEST, SUCCESS} from '../../utils/action-type.util'
+import {FAILURE, SUCCESS} from '../../utils/action-type.util'
 
 export const ACTION_TYPE = {
     UPDATE_COUNT: "count/UPDATE_COUNT",

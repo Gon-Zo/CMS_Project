@@ -34,10 +34,8 @@ export default ({history}) => {
             </form>
 
             <div className="ml-2">
-                <Link type="button" className="btn btn-outline-danger" to={"/cms/login"}>
-                    <FontAwesomeIcon className="mr-2" icon={['fas', 'sign-in-alt']}/>
-                    Sign in
-                </Link>
+                <Link type="button" id={"loginBtn"} className="btn btn-outline-turquoiseBlue" to={"/cms/login"}>
+                    <FontAwesomeIcon className="mr-2" icon={['fas', 'sign-in-alt']}/></Link>
             </div>
 
         </nav>

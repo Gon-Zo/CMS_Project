@@ -10,6 +10,8 @@ import {Provider} from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger'
 import ReduxThunk from 'redux-thunk';
+import '../src/assests/utils/axios.util'
+
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger , ReduxThunk)))
 
