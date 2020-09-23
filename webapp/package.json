@@ -33,7 +33,7 @@
     "webpack-merge": "^5.1.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config ./webpack/webpack.dev.js --hot",
+    "start": "webpack-dev-server --config ./webpack/webpack.dev.js --hot",
     "build": "webpack --config ./webpack/webpack.prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

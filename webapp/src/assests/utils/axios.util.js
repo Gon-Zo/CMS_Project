@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = 'http://localhost:7000'
 
 axios.defaults.timeout = 10000
 
 axios.interceptors.request.use(request => {
     console.log('request', request);
+    request.withCredentials = true;
     return request;
 }, error => {
     console.log(error);

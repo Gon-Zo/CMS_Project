@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import logo from "../../images/logo.svg";
 import {useDispatch, useSelector} from "react-redux";
 import AwesomeComponent from "../component/AwesomeComponent.jsx";
-import {onLogin} from "../actions/login.action";
+import {fetchLogin} from "../actions/login.action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
+import {Link, useHistory} from "react-router-dom";
+import {SUCCESS} from "../../utils/action-type.util";
+import {ACTION_TYPE} from "../reducer/login.reducer";
 
 export default () => {
 
@@ -14,22 +16,31 @@ export default () => {
 
     const dispatch = useDispatch()
 
+    const history = useHistory()
+
     const login = useSelector(state => state.Login)
 
     const isLoad = login.loading
 
     const _onLogin = () => {
-        dispatch(onLogin(dispatch , { email : email , password : password}))
+
+        dispatch(fetchLogin())
+            .then(res => {
+                setTimeout(function () {
+                    history.push("/")
+                }, 3000);
+            })
+            .catch(()=>{
+               console.log("error")
+            })
+
     }
 
     const _onLoginToKakao = () => {
+        history.push("/")
     }
 
     const _onLoginToGoogle = () => {
-    }
-
-    const _onSignIn = () => {
-
     }
 
     return (
@@ -59,7 +70,7 @@ export default () => {
                     </div>
 
                 </div>
-                {/*boody*/}
+                {/*body*/}
 
                 <div className="pl-5 pr-5 login-footer">
                     <button className="btn btn-turquoiseBlue btn-block" onClick={() => _onLogin()}>
@@ -75,10 +86,9 @@ export default () => {
                         <span className="ml-2">Google</span>
                     </button>
 
-                    <div className="text-box mt-1" onClick={() => _onSignIn()}>
-                        <span>계정만들기</span>
+                    <div className="text-box mt-1">
+                        <Link to={"/cms/sign-in"}>계정만들기</Link>
                     </div>
-
                 </div>
                 {/*footer*/}
 

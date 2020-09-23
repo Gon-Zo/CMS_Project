@@ -1,16 +1,18 @@
 import {SUCCESS, REQUEST, FAILURE} from '../../utils/action-type.util'
 import {ACTION_TYPE} from '../reducer/login.reducer'
+import axios from 'axios'
 
-export function onLogin (dispatch , payload){
-
-    // console.log("payload" , JSON.stringify(payload))
-
-    dispatch({type: REQUEST(ACTION_TYPE.UPDATE_LOGIN)})
-
-    setTimeout(function() {
-        dispatch({type:SUCCESS(ACTION_TYPE.UPDATE_LOGIN)})
-    }, 10000);
-
+export const fetchLogin = () => {
+    return (dispatch) => {
+        dispatch({type: REQUEST(ACTION_TYPE.UPDATE_LOGIN)})
+        return axios.get('/api/statics/hello')
+            .then(res => {
+                setTimeout(function () {
+                    dispatch({type: SUCCESS(ACTION_TYPE.UPDATE_LOGIN)})
+                }, 3000);
+            })
+            .catch(err => dispatch({type: FAILURE(ACTION_TYPE.UPDATE_LOGIN), payload: err}))
+    }
 }
 
-export const onTest = () => ({type: REQUEST(ACTION_TYPE.UPDATE_LOGIN)})
+

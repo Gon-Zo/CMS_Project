@@ -16,12 +16,15 @@ export default (state = initState, action) => {
 
     switch (action.type) {
         case SUCCESS(ACTION_TYPE.UPDATE_LOGIN):
-            return {
+            const result =  {
                 ...initState,
                 loading: false,
                 updateSuccess: true,
                 payload: true
             }
+            console.log('res' , JSON.stringify(result))
+            return result;
+
         case REQUEST(ACTION_TYPE.UPDATE_LOGIN) :
             return {
                 ...initState,
@@ -30,6 +33,7 @@ export default (state = initState, action) => {
         case FAILURE(ACTION_TYPE.UPDATE_LOGIN)   :
             return {
                 ...initState,
+                loading: false,
                 errorMessage: action.payload
             }
         case ACTION_TYPE.RESET:
