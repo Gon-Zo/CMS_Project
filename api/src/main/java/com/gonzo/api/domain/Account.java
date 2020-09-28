@@ -2,9 +2,13 @@ package com.gonzo.api.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,48 +18,51 @@ import java.util.List;
  */
 @Getter
 @Entity
+@DynamicUpdate
+@NoArgsConstructor
 @Table(name = "ACCOUNT")
 public class Account extends BaseEntity {
 
-    @Column(name = "email" , nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password" , nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "nickname" , nullable = false)
+    @Column(name = "nickname", nullable = false)
     private String nickName;
 
+    @Column(name = "activate", nullable = false)
+    private Boolean activate;
+
     @OneToMany(mappedBy = "account")
-    private List<Post> postList;
+    private List<Post> postList = new ArrayList<>();
 
-    @Column(name = "activate" , nullable = false)
-    private boolean activate;
-
-//    @JsonIgnore
-//    @ManyToMany
-//    @JoinTable(
-//            name = "cms_account_authority",
-//            joinColumns = {@JoinColumn(name = "account_id" , referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "authority_name" , referencedColumnName = "name")}
-//    )
-//    @BatchSize(size = 20)
-//    private Set<Authority> authorities = new HashSet<>();
-
-    @ManyToMany
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.ALL
+            })
     @JoinTable(
             name = "accounts_roles",
             joinColumns = @JoinColumn(
                     name = "accounts_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private List<Role> roles = new ArrayList<>();
 
     @Builder
-    public Account(String email, String password, String nickName, List<Post> postList) {
+    public Account(String email,
+                   String password,
+                   String nickName,
+                   Boolean activate,
+                   List<Role> roles,
+                   List<Post> postList) {
         this.email = email;
         this.password = password;
         this.nickName = nickName;
+        this.activate = activate;
+        this.roles = roles;
         this.postList = postList;
     }
 

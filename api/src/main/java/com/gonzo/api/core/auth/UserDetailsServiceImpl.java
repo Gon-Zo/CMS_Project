@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Create by park031517@gmail.com on 2020-09-23, 수
@@ -24,15 +25,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Account loginUser = repository.findByEmail(email)
+        Account account = repository.findByEmail(email)
                 .orElseThrow(() -> new CmsException(ErrorCode.NOT_FOUND_USER));
 
         return UserDetailsImpl.builder()
-                .email(loginUser.getEmail())
-                .password(loginUser.getPassword())
-                .roles(loginUser.getRoles())
+                .email(account.getEmail())
+                .password(account.getPassword())
+                .roles(account.getRoles())
                 .build();
 
     }

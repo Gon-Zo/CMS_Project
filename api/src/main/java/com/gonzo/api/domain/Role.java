@@ -1,9 +1,12 @@
 package com.gonzo.api.domain;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Create by park031517@gmail.com on 2020-09-23, 수
@@ -12,21 +15,23 @@ import java.util.Collection;
  */
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "CMS_ROLE")
 public class Role extends BaseEntity {
 
+    @Column(nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<Account> accounts;
+    @Column(nullable = false)
+    private String groupName;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "roles_privileges",
-//            joinColumns = @JoinColumn(
-//                    name = "role_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "privilege_id", referencedColumnName = "id"))
-//    private Collection<Privilege> privileges;
+    @ManyToMany(mappedBy = "roles")
+    private List<Account> accounts;
+
+    @Builder
+    public Role(String name, String groupName) {
+        this.name = name;
+        this.groupName = groupName;
+    }
 
 }

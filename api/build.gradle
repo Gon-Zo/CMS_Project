@@ -12,6 +12,7 @@ plugins {
 
 apply from:'gradle/utils.gradle'
 apply from:'gradle/querydsl.gradle'
+apply from:'gradle/jwt.gradle'
 
 group = 'com.gonzo'
 version = '0.0.1-SNAPSHOT'

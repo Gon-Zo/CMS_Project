@@ -1,19 +1,19 @@
 spring:
   application:
     name: CMS
-  jmx:
-    enabled: false
-  jpa:
-    properties:
-      hibernate.jdbc.time_zone: UTC
-      hibernate.id.new_generator_mappings: true
-      hibernate.connection.provider_disables_autocommit: true
-      hibernate.cache.use_second_level_cache: false
-      hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: false
+#  jmx:
+#    enabled: false
+#  jpa:
+#    properties:
+#      hibernate.jdbc.time_zone: UTC
+#      hibernate.id.new_generator_mappings: true
+#      hibernate.connection.provider_disables_autocommit: true
+#      hibernate.cache.use_second_level_cache: false
+#      hibernate.cache.use_query_cache: false
+#      hibernate.generate_statistics: false
 
-server:
-  servlet:
-    session:
-      cookie:
-        http-only: true
+#server:
+#  servlet:
+#    session:
+#      cookie:
+#        http-only: true

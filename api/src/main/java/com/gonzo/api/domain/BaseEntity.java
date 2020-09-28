@@ -22,12 +22,22 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @CreatedDate
+//    @CreatedDate
     @Column(name = "create_date" , nullable = false , updatable = false)
     protected LocalDate createDate;
 
-    @LastModifiedBy
+//    @LastModifiedBy
     @Column(name = "update_date" , nullable = false)
     protected LocalDate updateDate;
+
+    @PrePersist
+    protected void onPersist() {
+        this.createDate = this.updateDate = LocalDate.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updateDate = LocalDate.now();
+    }
 
 }

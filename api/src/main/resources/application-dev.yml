@@ -22,3 +22,5 @@ logging:
 server:
   port: 7000
 
+jwt:
+  secret : ENC(S4d7llZEq0pMO3gjYPOC19ifok9chSZkTFA6yCXeF6fT6CLrRm44jMf6p4pxPq3O)

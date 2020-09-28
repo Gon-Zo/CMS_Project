@@ -1,7 +1,9 @@
 package com.gonzo.api.service;
 
 import com.gonzo.api.repository.AccountRepository;
+import com.gonzo.api.repository.RoleRepository;
 import com.gonzo.api.service.dto.AccountDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,16 +12,16 @@ import org.springframework.stereotype.Service;
  * Github : https://github.com/Gon-Zo
  */
 @Service
+@RequiredArgsConstructor
 public class AccountService {
 
     private final AccountRepository repository;
 
-    public AccountService(AccountRepository repository) {
-        this.repository = repository;
-    }
+    private final RoleRepository roleRepository;
 
     public void saveToUser(AccountDto dto){
         dto.toEncoding();
+        dto.getRoles().addAll(roleRepository.findByGroupName(dto.getGroup().getName()));
         repository.save(dto.toEntity());
     }
 
