@@ -1,14 +1,45 @@
-
 plugins {
     id "com.moowork.node" version "${node_plugin_version}"
 }
 
-node {
-    version = "${node_version}"
-    npmVersion = "${npm_version}"
-    download = true
+//node {
+//    version = "${node_version}"
+//    npmVersion = "${npm_version}"
+//    download = true
+//}
+
+def webAppDir = "$projectDir"
+
+task appNpmInstall(type: NpmTask) {
+//    workingDir = file("${webAppDir}")
+    args = ["run", "build"]
 }
 
-repositories {
-    mavenCentral()
-}
+// https://lemontia.tistory.com/912
+//
+//plugins {
+//    ...
+//
+//    # moowork.node 추가
+//    id "com.moowork.node" version "1.3.1"
+//}
+//
+//apply plugin: "com.moowork.node"
+//...
+//
+//# (아래 추가)
+//
+//def webappDir = "$projectDir/frontend/my-app"
+//
+//task appNpmInstall(type: NpmTask) {
+//    workingDir = file("${webappDir}")
+//    args = ["run", "build"]
+//}
+//
+//task copyWebApp(type: Copy) {
+//    from 'frontend/my-app/build'
+//    into "build/resources/main/static"
+//}
+//
+//copyWebApp.dependsOn(appNpmInstall)
+//compileJava.dependsOn(copyWebApp)
