@@ -12,6 +12,11 @@ import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Create by park031517@gmail.com on 2020-09-29, 화
+ * Blog : https://zzz-oficial.tistory.com
+ * Github : https://github.com/Gon-Zo
+ */
 @Component
 public class JwtUtils implements Serializable {
 
