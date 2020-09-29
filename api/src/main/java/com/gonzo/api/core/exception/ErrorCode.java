@@ -9,6 +9,7 @@ import lombok.Getter;
  */
 public enum ErrorCode {
    INTERNAL_SERVER_ERROR("S001" , "INTERNAL SERVER ERROR"),
+   NOT_USER_ACTIVATE("U002" , "Not User Activate"),
    NOT_FOUND_USER("U001" , "DataBase Not Found User");
 
    @Getter

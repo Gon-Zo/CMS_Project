@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Account extends BaseEntity {
     @Column(name = "nickname", nullable = false)
     private String nickName;
 
+    @ColumnDefault(value = "false")
     @Column(name = "activate", nullable = false)
     private Boolean activate;
 

@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 /**
  * Create by park031517@gmail.com on 2020-09-23, 수
  * Blog : https://zzz-oficial.tistory.com
@@ -31,12 +33,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Account account = repository.findByEmail(email)
                 .orElseThrow(() -> new CmsException(ErrorCode.NOT_FOUND_USER));
 
+        if (isNotActivate(account.getActivate())) {
+            throw new CmsException(ErrorCode.NOT_USER_ACTIVATE);
+        }
+
         return UserDetailsImpl.builder()
                 .email(account.getEmail())
                 .password(account.getPassword())
                 .roles(account.getRoles())
                 .build();
 
+    }
+
+    private boolean isNotActivate(boolean activate) {
+        return activate == Boolean.FALSE || isEmpty(activate);
     }
 
 }
