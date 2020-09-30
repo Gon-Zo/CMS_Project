@@ -3,6 +3,7 @@ package com.gonzo.api.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Post extends BoardBaseEntity {
     @Column(name = "text" , nullable = false)
     private String text;
 
+    @ColumnDefault(value = "0L")
     @Column(name = "hit" , nullable = false)
     private Long hit;
 
@@ -37,10 +39,16 @@ public class Post extends BoardBaseEntity {
     private List<Image> imageList;
 
     @Builder
-    public Post(String title , String text , Long hit){
-       this.title = title ;
-       this.text = text;
-       this.hit = hit;
+    public Post(String title,
+                String text,
+                Long hit,
+                Account account,
+                List<Image> imageList) {
+        this.title = title;
+        this.text = text;
+        this.hit = hit;
+        this.account = account;
+        this.imageList = imageList;
     }
 
 }
