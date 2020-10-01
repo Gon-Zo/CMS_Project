@@ -3,6 +3,7 @@ package com.gonzo.api.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -21,12 +22,15 @@ import java.util.List;
 @NoArgsConstructor
 public class Post extends BoardBaseEntity {
 
+    @Setter
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Setter
     @Column(name = "text" , nullable = false)
     private String text;
 
+    @Setter
     @ColumnDefault(value = "0L")
     @Column(name = "hit" , nullable = false)
     private Long hit;
@@ -35,6 +39,7 @@ public class Post extends BoardBaseEntity {
     @JoinColumn(name = "account_id")
     private Account account;
 
+    @Setter
     @OneToMany(mappedBy = "post")
     private List<Image> imageList;
 

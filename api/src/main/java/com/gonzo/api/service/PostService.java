@@ -11,8 +11,10 @@ import com.gonzo.api.service.dto.PostDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
+
+import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
+import static com.gonzo.api.core.util.ListUtils.isNotEmpty;
 
 /**
  * Create by park031517@gmail.com on 2020-09-29, 화
@@ -45,9 +47,34 @@ public class PostService {
        return postRepository.findAll();
     }
 
-    public void modifyToPost(Long id, PostDto dto) {
+    @Transactional
+    public void updateToPost(Long id, PostDto dto) {
+
         Post oldPost = postRepository.getOne(id);
 
+        if(isNotEmpty(dto.getTitle())){
+            oldPost.setTitle(dto.getTitle());
+        }
+
+        if(isNotEmpty(dto.getText())){
+           oldPost.setText(dto.getText());
+        }
+
+        if(isNotEmpty(dto.getHit())){
+           oldPost.setHit(dto.getHit());
+        }
+
+        if(isNotEmpty(dto.getImageList())){
+           oldPost.setImageList(dto.getImageList());
+        }
+
+        postRepository.save(oldPost);
+
+    }
+
+    @Transactional
+    public void deleteToPost(Long id){
+      postRepository.deleteById(id);
     }
 
 }
