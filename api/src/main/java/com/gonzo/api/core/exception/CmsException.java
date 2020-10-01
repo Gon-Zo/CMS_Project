@@ -1,5 +1,7 @@
 package com.gonzo.api.core.exception;
 
+import lombok.Getter;
+
 /**
  * Create by park031517@gmail.com on 2020-09-23, 수
  * Blog : https://zzz-oficial.tistory.com
@@ -7,6 +9,7 @@ package com.gonzo.api.core.exception;
  */
 public class CmsException extends RuntimeException {
 
+    @Getter
     private ErrorCode error;
 
     public CmsException(String message) {

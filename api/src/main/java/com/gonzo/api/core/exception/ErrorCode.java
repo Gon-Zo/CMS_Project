@@ -10,7 +10,12 @@ import lombok.Getter;
 public enum ErrorCode {
    INTERNAL_SERVER_ERROR("S001" , "INTERNAL SERVER ERROR"),
    NOT_USER_ACTIVATE("U002" , "Not User Activate"),
-   NOT_FOUND_USER("U001" , "DataBase Not Found User");
+   NOT_FOUND_USER("U001" , "DataBase Not Found User"),
+   AUTHORIZATION_NOT_FOUND("A001" , "Authorization Not Found"),
+   UNABLE_JWT_TOKEN("A002" , "Unable Jwt Token"),
+   EXPIRED_JWT_TOKEN("A003" , "Expired Jwt Token"),
+   IS_NOT_VALIDATE("A004" , "Is Not Validate");
+
 
    @Getter
    private final String code;

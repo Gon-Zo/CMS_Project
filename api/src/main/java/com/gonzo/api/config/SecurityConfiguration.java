@@ -2,6 +2,7 @@ package com.gonzo.api.config;
 
 import com.gonzo.api.core.auth.UserDetailsServiceImpl;
 import com.gonzo.api.core.security.AccountAuthenticationFilter;
+import com.gonzo.api.core.security.JwtAuthenticationFilter;
 import com.gonzo.api.core.util.JwtUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -37,10 +38,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .cors().disable()
-                .addFilterBefore(new AccountAuthenticationFilter(authenticationManager(), jwtUtils), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new AccountAuthenticationFilter(authenticationManager(), jwtUtils),
+                        UsernamePasswordAuthenticationFilter.class)
+                .addFilterAfter(new JwtAuthenticationFilter(jwtUtils, userDetailsService),
+                        AccountAuthenticationFilter.class)
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
     }
 
     @Override
