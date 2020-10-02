@@ -3,10 +3,13 @@ package com.gonzo.api.core.security;
 import com.gonzo.api.core.auth.UserDetailsServiceImpl;
 import com.gonzo.api.core.exception.CmsException;
 import com.gonzo.api.core.exception.ErrorCode;
+import com.gonzo.api.core.util.CmsUtils;
 import com.gonzo.api.core.util.JwtUtils;
+import com.sun.xml.internal.ws.protocol.soap.ClientMUTube;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,8 +21,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import static com.gonzo.api.core.util.CmsUtils.throwExceptionRequest;
 
 /**
  * Create by park031517@gmail.com on 2020-10-1, 목
@@ -37,8 +38,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+                                    @NotNull HttpServletResponse response,
+                                    @NotNull FilterChain filterChain) throws ServletException, IOException {
 
         log.info("FILTER -> {}" , "JwtAuthFilter");
 
@@ -90,9 +91,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         }catch (CmsException ce){
             ce.printStackTrace();
-            throwExceptionRequest(ce, response);
+            CmsUtils.drawingToException(ce, response);
         }
-
     }
 
     private Boolean isNotValidate(String jwtHeader, UserDetails userDetails) {
