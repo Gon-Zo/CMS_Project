@@ -23,24 +23,28 @@ import java.util.List;
 public class Post extends BoardBaseEntity {
 
     @Setter
-    @Column(name = "title", nullable = false)
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
     @Setter
-    @Column(name = "text" , nullable = false)
+    @Column(name = "TEXT" , nullable = false)
     private String text;
 
     @Setter
-    @Column(name = "hit" , nullable = false)
+    @Column(name = "HIT" , nullable = false)
     private Long hit = 0L;
 
     @ManyToOne
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "ACCOUNT_ID")
     private Account account;
 
     @Setter
     @OneToMany(mappedBy = "post")
     private List<Image> imageList;
+
+    @OneToOne
+    @JoinColumn(name = "BOARD_ID")
+    private Board board;
 
     @Builder
     public Post(String title,
