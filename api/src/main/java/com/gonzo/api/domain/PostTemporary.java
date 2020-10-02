@@ -3,6 +3,7 @@ package com.gonzo.api.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
@@ -13,6 +14,7 @@ import javax.persistence.*;
  */
 @Getter
 @Entity
+@DynamicUpdate
 @NoArgsConstructor
 @Table(name = "POST_TEMPORARY")
 public class PostTemporary extends BoardBaseEntity {
