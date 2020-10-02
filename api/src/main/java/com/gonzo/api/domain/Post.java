@@ -31,9 +31,8 @@ public class Post extends BoardBaseEntity {
     private String text;
 
     @Setter
-    @ColumnDefault(value = "0L")
     @Column(name = "hit" , nullable = false)
-    private Long hit;
+    private Long hit = 0L;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
