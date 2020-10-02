@@ -17,10 +17,10 @@ import javax.persistence.*;
 @Table(name = "POST_TEMPORARY")
 public class PostTemporary extends BoardBaseEntity {
 
-    @Column(name = "title" , nullable = false)
+    @Column(name = "TITLE" , nullable = false)
     private String title;
 
-    @Column(name = "text" , nullable = false)
+    @Column(name = "TEXT" , nullable = false)
     private String text;
 
     @OneToOne
