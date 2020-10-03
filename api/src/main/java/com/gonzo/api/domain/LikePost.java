@@ -3,6 +3,7 @@ package com.gonzo.api.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -16,8 +17,9 @@ import javax.persistence.Table;
  */
 @Getter
 @Entity
-@Table(name = "LIKE_POST")
+@DynamicUpdate
 @NoArgsConstructor
+@Table(name = "LIKE_POST")
 public class LikePost extends BaseEntity {
 
     @OneToOne

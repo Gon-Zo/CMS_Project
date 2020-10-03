@@ -22,7 +22,15 @@ public enum ErrorCode {
    EXPIRED_JWT_TOKEN("A003" , "Expired Jwt Token"),
    IS_NOT_VALIDATE("A004" , "Is Not Validate"),
 
-   NOT_FOUND_BOARD("B001" , "Not Found Board")
+   // Board
+   NOT_FOUND_BOARD("B001" , "Not Found Board"),
+
+   //Post
+   NOT_FOUND_POST("P001" , "Not Found Post"),
+
+   // Comment
+   NOT_FOUND_COMMENT("P001" , "Not Found Comment")
+
    ;
 
 
