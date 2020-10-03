@@ -3,14 +3,16 @@ package com.gonzo.api.service;
 import com.gonzo.api.core.exception.CmsException;
 import com.gonzo.api.core.exception.ErrorCode;
 import com.gonzo.api.domain.Account;
+import com.gonzo.api.domain.Board;
 import com.gonzo.api.domain.Post;
-import com.gonzo.api.repository.AccountRepository;
-import com.gonzo.api.repository.ImageRepository;
-import com.gonzo.api.repository.PostRepository;
+import com.gonzo.api.domain.PostTemporary;
+import com.gonzo.api.repository.*;
 import com.gonzo.api.service.dto.PostDto;
+import com.gonzo.api.service.dto.PostTemporaryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
@@ -27,54 +29,89 @@ public class PostService {
 
     private final PostRepository postRepository;
 
+    private final PostTemporaryRepository postTemporaryRepository;
+
     private final AccountRepository accountRepository;
 
     private final ImageRepository imageRepository;
 
+    private final BoardRepository boardRepository;
+
     @Transactional
     public void saveToPost(PostDto dto) {
 
-        Account account = accountRepository.findByEmail("")
-                .orElseThrow(() -> new CmsException(ErrorCode.NOT_FOUND_USER));
+        Account account = searchByAccount("");
 
         dto.containToAccount(account);
+
+        Board board = searchByBoard(0L);
+
+        dto.containToBoard(board);
 
         postRepository.save(dto.toEntity());
     }
 
     @Transactional(readOnly = true)
-    public List<Post> getToPosts(){
-       return postRepository.findAll();
+    public List<Post> getToPosts() {
+        return postRepository.findAll();
     }
 
     @Transactional
     public void updateToPost(Long id, PostDto dto) {
 
-        Post oldPost = postRepository.getOne(id);
-
-        if(isNotEmpty(dto.getTitle())){
-            oldPost.setTitle(dto.getTitle());
-        }
-
-        if(isNotEmpty(dto.getText())){
-           oldPost.setText(dto.getText());
-        }
-
-        if(isNotEmpty(dto.getHit())){
-           oldPost.setHit(dto.getHit());
-        }
-
-        if(isNotEmpty(dto.getImageList())){
-           oldPost.setImageList(dto.getImageList());
-        }
+        Post oldPost = dto.updateToData(
+                postRepository.getOne(id)
+        );
 
         postRepository.save(oldPost);
 
     }
 
     @Transactional
-    public void deleteToPost(Long id){
-      postRepository.deleteById(id);
+    public void deleteToPost(Long id) {
+        postRepository.deleteById(id);
+    }
+
+
+    @Transactional
+    public void saveToPostTemporary(PostTemporaryDto dto) {
+
+        Account account = searchByAccount("");
+
+        dto.containToAccount(account);
+
+        Board board = searchByBoard(0L);
+
+        dto.containToBoard(board);
+
+        postTemporaryRepository.save(dto.toEntity());
+
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostTemporary> getToPostTemporary(){
+        return postTemporaryRepository.findAll();
+    }
+
+    @Transactional
+    public void deleteToPostTemporary(Long id){
+       postTemporaryRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void updateToPostTemporary(Long id, PostTemporaryDto dto) {
+        PostTemporary oldData = dto.updateToData(postTemporaryRepository.getOne(id));
+        postTemporaryRepository.save(oldData);
+    }
+
+    private Account searchByAccount(String email) {
+        return accountRepository.findByEmail(email)
+                .orElseThrow(() -> new CmsException(ErrorCode.NOT_FOUND_USER));
+    }
+
+    private Board searchByBoard(Long id) {
+        return boardRepository.findById(id)
+                .orElseThrow(() -> new CmsException(ErrorCode.NOT_FOUND_BOARD));
     }
 
 }

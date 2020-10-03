@@ -51,11 +51,13 @@ public class Post extends BoardBaseEntity {
                 String text,
                 Long hit,
                 Account account,
+                Board board,
                 List<Image> imageList) {
         this.title = title;
         this.text = text;
         this.hit = hit;
         this.account = account;
+        this.board = board;
         this.imageList = imageList;
     }
 
