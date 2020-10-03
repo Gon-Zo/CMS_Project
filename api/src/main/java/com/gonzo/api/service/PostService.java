@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
-import static com.gonzo.api.core.util.ListUtils.isNotEmpty;
-
 /**
  * Create by park031517@gmail.com on 2020-09-29, 화
  * Blog : https://zzz-oficial.tistory.com
