@@ -1,9 +1,10 @@
 package com.gonzo.api.domain;
 
 import lombok.Builder;
+import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Create by park031517@gmail.com on 2020-09-11, 금
@@ -11,12 +12,15 @@ import java.util.List;
  * Github : https://github.com/Gon-Zo
  */
 @Entity
+@DynamicUpdate
 @Table(name = "BOARD")
 public class Board extends BoardBaseEntity{
 
+    @Setter
     @Column(name = "TITLE" , nullable = false)
     private String title;
 
+    @Setter
     @OneToOne
     @JoinColumn(name = "category_id" , nullable = false)
     private Category category;
