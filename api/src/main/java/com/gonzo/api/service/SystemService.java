@@ -41,7 +41,7 @@ public class SystemService {
         categoryRepository.save(oldData);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Category> getToCategory() {
         return categoryRepository.findAll();
     }
@@ -61,7 +61,7 @@ public class SystemService {
         roleRepository.save(dto.updateToData(roleRepository.getOne(id)));
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Role> getToRoles() {
         return roleRepository.findAll();
     }
