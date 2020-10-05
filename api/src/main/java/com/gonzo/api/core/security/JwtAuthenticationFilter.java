@@ -52,38 +52,40 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         try {
 
-            try {
-                authorization = request.getHeader("Authorization").substring(7);
-            } catch (NullPointerException e) {
-                throw new CmsException(ErrorCode.AUTHORIZATION_NOT_FOUND);
-            }
+            if (url.startsWith("/api")) {
+                try {
+                    authorization = request.getHeader("Authorization").substring(7);
+                } catch (NullPointerException e) {
+                    throw new CmsException(ErrorCode.AUTHORIZATION_NOT_FOUND);
+                }
 
-            try {
-                userName = jwtUtils.getUsernameFromToken(authorization);
-                log.info("REQUEST USER -> {}" , userName);
+                try {
+                    userName = jwtUtils.getUsernameFromToken(authorization);
+                    log.info("REQUEST USER -> {}", userName);
 
-            } catch (IllegalArgumentException e) {
-                throw new CmsException(ErrorCode.UNABLE_JWT_TOKEN);
-            } catch (ExpiredJwtException e) {
-                throw new CmsException(ErrorCode.EXPIRED_JWT_TOKEN);
-            }
+                } catch (IllegalArgumentException e) {
+                    throw new CmsException(ErrorCode.UNABLE_JWT_TOKEN);
+                } catch (ExpiredJwtException e) {
+                    throw new CmsException(ErrorCode.EXPIRED_JWT_TOKEN);
+                }
 
-            UserDetails loginAuthUser = userDetailsService.loadUserByUsername(userName);
+                UserDetails loginAuthUser = userDetailsService.loadUserByUsername(userName);
 
-            Boolean isNotValidate = isNotValidate(authorization, loginAuthUser);
+                Boolean isNotValidate = isNotValidate(authorization, loginAuthUser);
 
-            if (isNotValidate) {
+                if (isNotValidate) {
 
-                throw new CmsException(ErrorCode.IS_NOT_VALIDATE);
+                    throw new CmsException(ErrorCode.IS_NOT_VALIDATE);
 
-            } else {
+                } else {
 
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginAuthUser, null, loginAuthUser.getAuthorities());
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginAuthUser, null, loginAuthUser.getAuthorities());
 
-                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 
+                }
             }
 
             filterChain.doFilter(request , response);
