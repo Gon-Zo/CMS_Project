@@ -19,19 +19,25 @@ import java.util.List;
 @Table(name = "CMS_ROLE")
 public class Role extends BaseEntity {
 
+    @Setter
     @Column(nullable = false)
     private String name;
 
+    @Setter
     @Column(nullable = false)
     private String groupName;
 
+    @Setter
     @ManyToMany(mappedBy = "roles")
     private List<Account> accounts;
 
     @Builder
-    public Role(String name, String groupName) {
+    public Role(String name,
+                String groupName,
+                List<Account> accounts) {
         this.name = name;
         this.groupName = groupName;
+        this.accounts = accounts;
     }
 
 }
