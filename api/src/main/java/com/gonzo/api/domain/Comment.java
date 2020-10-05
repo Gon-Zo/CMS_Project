@@ -2,6 +2,7 @@ package com.gonzo.api.domain;
 
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,7 @@ import javax.persistence.*;
  * Blog : https://zzz-oficial.tistory.com
  * Github : https://github.com/Gon-Zo
  */
-@Getter
+@Data
 @Entity
 @Table(name = "COMMENT")
 @NoArgsConstructor
