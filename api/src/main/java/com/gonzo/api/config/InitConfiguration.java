@@ -73,9 +73,9 @@ public class InitConfiguration {
 
         if (categoryCnt == 0L) {
 
-            List<String> categoryStr = Arrays.asList("라이프여행", "맛집문화", "연예", "IT", "스포츠", "시사");
+            List<String> categoryStr = Arrays.asList("Home" , "라이프여행", "맛집문화", "연예", "IT", "스포츠", "시사");
 
-            List<String> urls = Arrays.asList("/count" , "/count" , "/count" ,"/count" ,"/count" , "/count");
+            List<String> urls = Arrays.asList("/" ,"/count" , "/count" , "/count" ,"/count" ,"/count" , "/count");
 
             List<Category> categories = categoryStr.stream()
                     .map(str -> categoryRepository.saveAndFlush(Category.builder().name(str).build()))
