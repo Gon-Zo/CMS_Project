@@ -57,7 +57,7 @@ export default () => {
                 </div>
                 {/*header*/}
 
-                <div className="login-body pl-3 pr-3">
+                <div className="login-body pl-3 pr-3 pt-lg-5">
 
                     <div className="login-input p-2">
                         <label>Email</label>

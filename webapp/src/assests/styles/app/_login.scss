@@ -18,7 +18,6 @@
     border-radius: 10px;
     border: 1px solid $TurquoiseBlue;
 
-
     .login-header{
 
       background-color: transparent;
@@ -39,9 +38,13 @@
 
     .login-body{
 
-      height: 20rem;
-      display: table-cell;
-      vertical-align: middle;
+      height: 17rem;
+
+      //display: flex;
+      //align-items: center;
+
+      //display: table-cell;
+      //vertical-align: middle;
 
       .login-input{
 
