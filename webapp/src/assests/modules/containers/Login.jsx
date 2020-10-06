@@ -5,8 +5,6 @@ import AwesomeComponent from "../component/AwesomeComponent.jsx";
 import {fetchLogin} from "../actions/login.action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from "react-router-dom";
-import {SUCCESS} from "../../utils/action-type.util";
-import {ACTION_TYPE} from "../reducer/login.reducer";
 
 export default () => {
 

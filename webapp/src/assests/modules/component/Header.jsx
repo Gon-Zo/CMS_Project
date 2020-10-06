@@ -1,18 +1,22 @@
 import logo from "../../images/logo.svg";
 import {Link} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useHistory} from 'react-router-dom'
+import {useDispatch, useSelector} from "react-redux";
+import {fetchMenu} from "../actions/public.action";
 
 export default () => {
 
-    const menuItems = [
-        {name: "Home", to: "/"},
-        {name: "Features", to: "/count"},
-        {name: "Pricing", to: "/"},
-    ]
-
     const history = useHistory()
+
+    const dispatch = useDispatch()
+
+    const menuItems = useSelector(state => state.Public.data)
+
+    useEffect(()=>{
+       dispatch(fetchMenu())
+    },[])
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">

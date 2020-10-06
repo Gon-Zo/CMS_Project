@@ -2,7 +2,7 @@ import {FAILURE, SUCCESS} from '../../utils/action-type.util'
 
 export const ACTION_TYPE = {
     UPDATE_COUNT: "count/UPDATE_COUNT",
-    RESET: 'count/reset'
+    RESET: 'count/RESET'
 }
 
 const initState = {
