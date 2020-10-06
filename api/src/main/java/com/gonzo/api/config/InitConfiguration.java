@@ -1,15 +1,22 @@
 package com.gonzo.api.config;
 
 import com.gonzo.api.core.enums.Group;
+import com.gonzo.api.domain.Category;
+import com.gonzo.api.domain.Menu;
 import com.gonzo.api.domain.Role;
 import com.gonzo.api.repository.AccountRepository;
+import com.gonzo.api.repository.CategoryRepository;
+import com.gonzo.api.repository.MenuRepository;
 import com.gonzo.api.repository.RoleRepository;
 import com.gonzo.api.service.dto.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Create by park031517@gmail.com on 2020-09-29, 화
@@ -23,6 +30,10 @@ public class InitConfiguration {
     private final RoleRepository roleRepository;
 
     private final AccountRepository accountRepository;
+
+    private final CategoryRepository categoryRepository;
+
+    private final MenuRepository menuRepository;
 
     @Transactional
     public void initService(){
@@ -55,6 +66,30 @@ public class InitConfiguration {
             accountDto.toEncoding();
 
             accountRepository.save(accountDto.toEntity());
+
+        }
+
+        long categoryCnt = categoryRepository.count();
+
+        if (categoryCnt == 0L) {
+
+            List<String> categoryStr = Arrays.asList("라이프여행", "맛집문화", "연예", "IT", "스포츠", "시사");
+
+            List<String> urls = Arrays.asList("/count" , "/count" , "/count" ,"/count" ,"/count" , "/count");
+
+            List<Category> categories = categoryStr.stream()
+                    .map(str -> categoryRepository.saveAndFlush(Category.builder().name(str).build()))
+                    .collect(Collectors.toList());
+
+            for (int i = 0; i < urls.size(); i++) {
+                String url = urls.get(i);
+                Category category = categories.get(i);
+                Menu menu = Menu.builder()
+                        .url(url)
+                        .category(category)
+                        .build();
+                menuRepository.save(menu);
+            }
 
         }
 
