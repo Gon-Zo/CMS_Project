@@ -2,14 +2,17 @@ import logo from "../../images/logo.svg";
 import {Link} from "react-router-dom";
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useHistory} from 'react-router-dom'
 
-export default ({history}) => {
+export default () => {
 
     const menuItems = [
         {name: "Home", to: "/"},
         {name: "Features", to: "/count"},
         {name: "Pricing", to: "/"},
     ]
+
+    const history = useHistory()
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">
@@ -34,8 +37,13 @@ export default ({history}) => {
             </form>
 
             <div className="ml-2">
-                <Link type="button" id={"loginBtn"} className="btn btn-outline-turquoiseBlue" to={"/cms/login"}>
-                    <FontAwesomeIcon className="mr-2" icon={['fas', 'sign-in-alt']}/></Link>
+               <button className="btn btn-turquoiseBlue">Sign in</button>
+            </div>
+
+            <div className="ml-2 mr-2">
+               <button onClick={()=>{
+                    history.push("/cms/login")
+               }} className="btn btn-outline-turquoiseBlue">Sign up</button>
             </div>
 
         </nav>
