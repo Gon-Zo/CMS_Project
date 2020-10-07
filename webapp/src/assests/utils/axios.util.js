@@ -6,7 +6,7 @@ axios.defaults.timeout = 10000
 
 axios.interceptors.request.use(request => {
     console.log('request', request);
-    request.withCredentials = true;
+    // request.withCredentials = true;
     return request;
 }, error => {
     console.log(error);

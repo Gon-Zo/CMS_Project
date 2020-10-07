@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Blog : https://zzz-oficial.tistory.com
  * Github : https://github.com/Gon-Zo
  */
-@Configuration
+//@Configuration
 public class CorsConfiguration implements WebMvcConfigurer {
 
     @Override

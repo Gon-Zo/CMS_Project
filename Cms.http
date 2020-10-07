@@ -1,0 +1,10 @@
+# Hello
+#GET http://localhost:7000/common/hello
+
+#POST HTTP
+# Login
+POST http://localhost:7000/api/login
+Content-Type: application/json
+
+{"email":"system@gmail.com", "password":"1234"}
+
