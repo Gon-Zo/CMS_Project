@@ -15,12 +15,9 @@ public class CorsConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
 
-//        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-
+//                allowedOrigins.allowedOrigins("http://localhost:9000")
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:9000")
-//                .allowedOrigins("*")
+                .allowedOrigins("*")
                 .allowedMethods("POST", "PUT", "GET", "OPTIONS", "DELETE")
                 .allowCredentials(true)
                 .maxAge(3600)

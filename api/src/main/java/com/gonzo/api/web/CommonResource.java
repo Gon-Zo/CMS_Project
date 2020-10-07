@@ -21,4 +21,9 @@ public class CommonResource {
        return commonService.getToMenu();
     }
 
+    @GetMapping("/hello")
+    public String getToHello(){
+        return "Hello";
+    }
+
 }

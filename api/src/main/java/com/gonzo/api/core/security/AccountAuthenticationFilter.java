@@ -34,7 +34,7 @@ public class AccountAuthenticationFilter extends UsernamePasswordAuthenticationF
     public AccountAuthenticationFilter(AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
         this.jwtUtils = jwtUtils;
-        setPostOnly(true);
+//        setPostOnly(true);
         setFilterProcessesUrl("/api/login");
     }
 

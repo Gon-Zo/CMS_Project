@@ -22,7 +22,7 @@ export default () => {
 
     const _onLogin = () => {
 
-        dispatch(fetchLogin())
+        dispatch(fetchLogin({"email": email, "password": password}))
 
             // .then(res => {
             //     setTimeout(function () {
