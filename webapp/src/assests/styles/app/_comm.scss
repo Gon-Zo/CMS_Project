@@ -103,3 +103,11 @@
   margin-left: -75px;
   z-index: 100;
 }
+
+@media only screen and (max-width: 991px) {
+
+  #headerBtnBox{
+     display: none;
+  }
+
+}

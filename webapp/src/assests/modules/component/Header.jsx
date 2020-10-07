@@ -40,14 +40,12 @@ export default () => {
                 <input className="form-control my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search"/>
             </form>
 
-            <div className="ml-2">
-               <button className="btn btn-turquoiseBlue">Sign in</button>
-            </div>
-
-            <div className="ml-2 mr-2">
-               <button onClick={()=>{
+            <div id="headerBtnBox" className="mr-2 ml-2">
+                <button className="btn btn-turquoiseBlue">Sign in</button>
+                <button onClick={() => {
                     history.push("/cms/login")
-               }} className="btn btn-outline-turquoiseBlue">Sign up</button>
+                }} className="btn btn-outline-turquoiseBlue ml-2">Sign up
+                </button>
             </div>
 
         </nav>
@@ -93,7 +91,6 @@ const NavItem = (props) => {
         <li className="nav-item">
             <Link className={`nav-link ${className}`} to={item.to} onClick={() => _onClick(idx)}>
                 {item.name}
-                <span></span>
             </Link>
         </li>
     )

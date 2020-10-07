@@ -23,14 +23,15 @@ export default () => {
     const _onLogin = () => {
 
         dispatch(fetchLogin())
-            .then(res => {
-                setTimeout(function () {
-                    history.push("/")
-                }, 3000);
-            })
-            .catch(()=>{
-               console.log("error")
-            })
+
+            // .then(res => {
+            //     setTimeout(function () {
+            //         history.push("/")
+            //     }, 3000);
+            // })
+            // .catch(()=>{
+            //    console.log("error")
+            // })
 
     }
 
