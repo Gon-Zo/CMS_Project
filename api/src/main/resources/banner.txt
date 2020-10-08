@@ -9,5 +9,5 @@
   ${AnsiColor.BRIGHT_RED} \______/ ${AnsiColor.MAGENTA}\__|     \__| \______/
 
 
-${AnsiColor.BRIGHT_CYAN}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
+${AnsiColor.BRIGHT_CYAN}:: Go-nZo Project 🤓  :: Running Spring Boot ${spring-boot.version} ::
 :: https://github.com/Gon-Zo/CMS_Project ::${AnsiColor.BRIGHT_BLACK}
