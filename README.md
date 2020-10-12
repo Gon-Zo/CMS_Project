@@ -10,9 +10,7 @@ CMS를 사용하면 클릭 한번으로 사이트를 만들 수 있다.<br/>
  
 ## 개발환경 
 
-###### `Spring Boot 2.3.x` `Java8` `Intellij` `Spring Security` `JPA` 
 
-##### `Postgresql` `Logback` `Gradle` `React` `Webpack` `Git`
 
 -------
 
