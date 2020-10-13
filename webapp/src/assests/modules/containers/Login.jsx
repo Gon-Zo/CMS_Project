@@ -22,16 +22,7 @@ export default () => {
 
     const _onLogin = () => {
 
-        dispatch(fetchLogin({"email": email, "password": password}))
-
-            // .then(res => {
-            //     setTimeout(function () {
-            //         history.push("/")
-            //     }, 3000);
-            // })
-            // .catch(()=>{
-            //    console.log("error")
-            // })
+        dispatch(fetchLogin({"email": email, "password": password}, history))
 
     }
 
@@ -40,6 +31,12 @@ export default () => {
     }
 
     const _onLoginToGoogle = () => {
+    }
+
+    const _handlerKeyPress = (e) => {
+        if (e.key === "Enter") {
+            _onLogin()
+        }
     }
 
     return (
@@ -60,12 +57,19 @@ export default () => {
 
                     <div className="login-input p-2">
                         <label>Email</label>
-                        <input type={"text"} value={email} onChange={event => setEmail(event.target.value)}/>
+                        <input onKeyPress={_handlerKeyPress}
+                               type={"text"} value={email}
+                               onChange={event =>
+                                   setEmail(event.target.value)}/>
                     </div>
 
                     <div className="login-input p-2 mt-5">
                         <label>Password</label>
-                        <input type={"password"} value={password} onChange={event => setPassword(event.target.value)}/>
+                        <input onKeyPress={_handlerKeyPress}
+                               type={"password"}
+                               value={password}
+                               onChange={event =>
+                                   setPassword(event.target.value)}/>
                     </div>
 
                 </div>
