@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -15,8 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.gonzo.api.core.util.JsonUtils.getJsonData;
 
@@ -72,7 +76,13 @@ public class AccountAuthenticationFilter extends UsernamePasswordAuthenticationF
 
         Map<String , Object> claims = new HashMap<>();
 
+        List<String> roles = userDetailsImpl.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+
         claims.put("email", email);
+
+        claims.put("roles"  , roles);
 
         String jwt = jwtUtils.doGenerateToken(claims, email);
 
