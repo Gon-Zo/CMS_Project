@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchMenu} from "../actions/public.action";
+import axios from "axios";
 
 export default () => {
 
@@ -17,6 +18,8 @@ export default () => {
     useEffect(()=>{
        dispatch(fetchMenu())
     },[])
+
+    const authorization =  axios.defaults.headers.common.Authorization
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">
@@ -40,12 +43,16 @@ export default () => {
                 <input className="form-control my-2 my-sm-0" type="search" placeholder="Search" aria-label="Search"/>
             </form>
 
-            <div id="headerBtnBox" className="mr-2 ml-2">
-                <button className="btn btn-turquoiseBlue">Sign in</button>
-                <button onClick={() => {
-                    history.push("/cms/login")
-                }} className="btn btn-outline-turquoiseBlue ml-2">Sign up
-                </button>
+            <div>
+
+                <div id="headerBtnBox" className="mr-2 ml-2">
+                    <button className="btn btn-turquoiseBlue">Sign in</button>
+                    <button onClick={() => {
+                        history.push("/cms/login")
+                    }} className="btn btn-outline-turquoiseBlue ml-2">Sign up
+                    </button>
+                </div>
+
             </div>
 
         </nav>
