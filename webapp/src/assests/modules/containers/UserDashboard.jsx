@@ -3,7 +3,7 @@ import React , {useState} from "react";
 import test1 from '../../images/test1.png'
 import test2 from '../../images/test2.png'
 import test3 from '../../images/test3.png'
-import Slider from "../component/Slider";
+import Slider from "../component/Slider.jsx";
 
 export default () => {
 
@@ -12,7 +12,7 @@ export default () => {
     ]
 
     return (
-        <Slider data={srcArray}/>
+        <Slider data={srcArray} styles={{width : "100%" , height : "100%"}}/>
     )
 
 }
