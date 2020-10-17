@@ -36,6 +36,7 @@ const TopList = () => {
     list-style:none;
     margin-bottom : 0;
     `;
+
     const ListItem = styled.li`
     `;
 

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { AnimateOnChange } from 'react-animation'
 
 const WrapDiv = styled.div`
@@ -11,6 +12,22 @@ const SlideImg = styled.img`
    width :100%;
    height:100%;
 `;
+
+const ArrowButton = styled.button`
+border:none;
+width:3rem;
+height:5rem;
+font-size:3rem;
+background-color:transparent;
+`
+
+const ButtonWrap = styled.div`
+position: absolute;
+top: 15rem;
+width: 100%;
+justify-content: space-between;
+display: flex;
+`
 
 export default (props) => {
 
@@ -75,12 +92,14 @@ const ButtonMode = (props) => {
         }
 
         return (
-            <div style={{
-                position: "absolute"
-            }}>
-                <button onClick={() => rightTest()}>&lt;</button>
-                <button onClick={() => leftTest()}>&gt;</button>
-            </div>
+            <ButtonWrap>
+                <ArrowButton onClick={() => rightTest()}>
+                    <FontAwesomeIcon icon={['fas','chevron-left']}/>
+                </ArrowButton>
+                <ArrowButton onClick={() => leftTest()}>
+                    <FontAwesomeIcon icon={['fas','chevron-right']}/>
+                </ArrowButton>
+            </ButtonWrap>
         )
     }
 
