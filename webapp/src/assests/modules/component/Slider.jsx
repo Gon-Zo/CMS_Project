@@ -7,9 +7,9 @@ const WrapDiv = styled.div`
 `;
 
 const SlideImg = styled.img`
-objectFit: cover;
- width :100%;
- height:100%;
+   object-fit: cover;
+   width :100%;
+   height:100%;
 `;
 
 export default (props) => {
