@@ -20,6 +20,7 @@
     "merge-jsons-webpack-plugin": "^1.0.21",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-animation": "^1.2.2",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
@@ -30,6 +31,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.0",
     "webpack-merge": "^5.1.4"
   },
   "scripts": {

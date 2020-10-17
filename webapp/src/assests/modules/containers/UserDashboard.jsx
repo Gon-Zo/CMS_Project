@@ -12,7 +12,7 @@ export default () => {
     ]
 
     return (
-        <Slider data={srcArray} styles={{width : "100%" , height : "100%"}}/>
+        <Slider data={srcArray} styles={{width : "100%" , height : "40rem"}}/>
     )
 
 }
