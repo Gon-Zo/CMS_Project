@@ -6,9 +6,12 @@ import Error from "./assests/modules/containers/Error.jsx";
 import Login from "./assests/modules/containers/Login.jsx";
 import SignIn from "./assests/modules/containers/SignIn.jsx";
 import Layout from "./assests/modules/containers/Layout.jsx";
-import UserDashboard from "./assests/modules/containers/UserDashboard.jsx";
+import UserDashboard from "./assests/modules/containers/user/UserDashboard.jsx";
 import SystemDashboard from "./assests/modules/containers/SystemDashboard.jsx";
 import axios from "axios";
+
+import Board from "./assests/modules/containers/user/Board.jsx";
+import Post from "./assests/modules/containers/user/Post.jsx";
 
 export default () => {
 
@@ -18,12 +21,13 @@ export default () => {
         <div className="container-fluid pd-none">
             <Router>
                 <Switch>
-                    <Route path={"/cms/login"} component={Login}/>
-                    <Route path={"/cms/sign-in"} component={SignIn}/>
 
-                    <Route path={"/cms/user-dashboard"} component={UserDashboard}/>
+                    {/*<Route path={"/cms/login"} component={Login}/>*/}
+                    {/*<Route path={"/cms/sign-in"} component={SignIn}/>*/}
 
-                    <RouteIf path={"/cms/system-dashboard"} component={SystemDashboard} role={APP_ROLES.NONE}/>
+                    {/*<RouteIf path={"/cms/system-dashboard"} component={SystemDashboard} role={APP_ROLES.NONE}/>*/}
+
+                    <Route path="/cms/user" component={UserDashboard}/>
 
                     <Route exact pate={"/:path?"}>
                         <Layout>
@@ -33,6 +37,7 @@ export default () => {
                             </Switch>
                         </Layout>
                     </Route>
+
                     <Route component={Error}/>
                 </Switch>
             </Router>
