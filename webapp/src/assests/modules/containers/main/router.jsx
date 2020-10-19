@@ -9,10 +9,8 @@ export default ({match}) => {
 
     return (
         <Layout>
-            <Switch>
-                <Route exact path={`${match.url}`} component={Main}/>
-                <Route path={`${match.url}count`} component={Count}/>
-            </Switch>
+            <Route path={`${match.url}`} component={Main}/>
+            <Route path={`${match.url}/count`} component={Count}/>
         </Layout>
     )
 }

@@ -18,9 +18,9 @@ export default () => {
         dispatch(updateCount(temp))
     }
 
-    useEffect(()=>{
-        dispatch({type : ACTION_TYPE.RESET})
-    } ,[dispatch])
+    useEffect(() => {
+        dispatch({type: ACTION_TYPE.RESET})
+    }, [dispatch])
 
     return (
         <>
@@ -29,9 +29,9 @@ export default () => {
                     <FontAwesomeIcon icon={['far', 'minus-square']}/>
                 </button>
                 <div>
-                <span>State : {num}</span>
-                <br/>
-                <span>Redux : {count}</span>
+                    <span>State : {num}</span>
+                    <br/>
+                    <span>Redux : {count}</span>
                 </div>
                 <button onClick={() => _handlerCount("+")}>
                     <FontAwesomeIcon icon={['far', 'plus-square']}/>
