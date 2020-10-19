@@ -1,43 +1,19 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Main from './assests/modules/containers/Main.jsx'
-import Count from './assests/modules/containers/Count.jsx'
 import Error from "./assests/modules/containers/Error.jsx";
-import Login from "./assests/modules/containers/Login.jsx";
-import SignIn from "./assests/modules/containers/SignIn.jsx";
-import Layout from "./assests/modules/containers/Layout.jsx";
 import UserDashboard from "./assests/modules/containers/user/UserDashboard.jsx";
-import SystemDashboard from "./assests/modules/containers/SystemDashboard.jsx";
 import axios from "axios";
 
-import Board from "./assests/modules/containers/user/Board.jsx";
-import Post from "./assests/modules/containers/user/Post.jsx";
+import MainRouter from '../src/assests/modules/containers/main/router.jsx'
 
 export default () => {
-
-    const authorization =  axios.defaults.headers.common.Authorization
 
     return (
         <div className="container-fluid pd-none">
             <Router>
                 <Switch>
-
-                    {/*<Route path={"/cms/login"} component={Login}/>*/}
-                    {/*<Route path={"/cms/sign-in"} component={SignIn}/>*/}
-
-                    {/*<RouteIf path={"/cms/system-dashboard"} component={SystemDashboard} role={APP_ROLES.NONE}/>*/}
-
+                    <Route path={"/"} component={MainRouter}/>
                     <Route path="/cms/user" component={UserDashboard}/>
-
-                    <Route exact pate={"/:path?"}>
-                        <Layout>
-                            <Switch>
-                                <Route exact path={"/"} component={Main}/>
-                                <Route path={"/count"} component={Count}/>
-                            </Switch>
-                        </Layout>
-                    </Route>
-
                     <Route component={Error}/>
                 </Switch>
             </Router>
@@ -46,38 +22,3 @@ export default () => {
     )
 }
 
-const APP_ROLES = {
-    NONE: "NONE",
-    SYSTEM: "SYSTEM"
-}
-
-const RouteIf = ({ role , component: Component, rest}) => {
-    return (
-        <Route
-            {...rest}
-            render={props => {
-
-                const test = rest.path
-
-                if (role === APP_ROLES.NONE) {
-                    return <TestErrorPage/>;
-                }
-
-                if (Component) {
-                    return <Component {...props} />;
-                }
-
-
-            }}/>
-    )
-}
-
-const TestErrorPage = () =>{
-    return (
-        <div>
-           <span>
-               Not Auth Go to Back
-           </span>
-        </div>
-    )
-}

@@ -23,8 +23,8 @@ export default ({match}) => {
             <LeftSidebar name={"User Dash"}/>
             <Container className="container-fluid">
                 <Switch>
-                    <Route exact path={`${match.url}/board`} component={Board}/>
-                    <Route exact path={`${match.url}/post`} component={Post}/>
+                    <Route path={`${match.url}/board`} component={Board}/>
+                    <Route path={`${match.url}/post`} component={Post}/>
                 </Switch>
             </Container>
         </Wrapper>
