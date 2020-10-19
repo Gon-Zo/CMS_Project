@@ -1,12 +1,12 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Error from "./assests/modules/containers/Error.jsx";
-import UserDashboard from "./assests/modules/containers/user/UserDashboard.jsx";
-import Login from "./assests/modules/containers/Login.jsx";
-import SignIn from "./assests/modules/containers/SignIn.jsx";
-import Layout from "./assests/modules/containers/Layout.jsx";
-import Main from "./assests/modules/containers/Main.jsx";
-import Count from "./assests/modules/containers/Count.jsx";
+import Error from "./assests/modules/containers/main/Error.jsx";
+import UserDashboard from "./assests/modules/containers/layout/UserDashboard.jsx";
+import Login from "./assests/modules/containers/main/Login.jsx";
+import SignIn from "./assests/modules/containers/main/SignIn.jsx";
+import Layout from "./assests/modules/containers/layout/Layout.jsx";
+import Main from "./assests/modules/containers/main/Main.jsx";
+import Count from "./assests/modules/containers/main/Count.jsx";
 import Board from "./assests/modules/containers/user/Board.jsx";
 import Post from "./assests/modules/containers/user/Post.jsx";
 
