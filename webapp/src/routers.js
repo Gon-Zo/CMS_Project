@@ -15,29 +15,29 @@ export default () => {
         <div className="container-fluid pd-none">
             <Router>
                 <Switch>
-                    <Route exact path={"/"}>
-                        <Layout>
-                            <Switch>
-                                <Route path={"/"} component={Main}/>
-                                <Route path={"/count"} component={Count}/>
-                            </Switch>
-                        </Layout>
-                    </Route>
-                    <Route path={"/count"} component={Count}/>
-                    <Route path="/user">
+                    <Route path={"/user"}>
                         <UserDashboard>
                             <Switch>
                                 <Route path={`/user/board`} component={Board}/>
                                 <Route path={`/user/post`} component={Post}/>
+                                <Route path={"/user*"} component={Error}/>
                             </Switch>
                         </UserDashboard>
                     </Route>
                     <Route path="/login" component={Login}/>
                     <Route path="/sign-in" component={SignIn}/>
+                    <Route exact pate={"/:path?"}>
+                        <Layout>
+                            <Switch>
+                                <Route exact path={"/"} component={Main}/>
+                                <Route path={"/count"} component={Count}/>
+                                <Route path={"/*"} component={Error}/>
+                            </Switch>
+                        </Layout>
+                    </Route>
                     <Route path={"*"} component={Error}/>
                 </Switch>
             </Router>
-
         </div>
     )
 }
