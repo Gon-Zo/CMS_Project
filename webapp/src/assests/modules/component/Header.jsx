@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
 import {fetchMenu} from "../actions/public.action";
-import axios from "axios";
+// import axios from "axios";
 
 export default () => {
 
@@ -19,7 +19,7 @@ export default () => {
        dispatch(fetchMenu())
     },[])
 
-    const authorization =  axios.defaults.headers.common.Authorization
+    // const authorization =  axios.defaults.headers.common.Authorization
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">

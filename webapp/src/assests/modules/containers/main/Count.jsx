@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {updateCount} from "../actions/count.action";
+import {updateCount} from "../../actions/count.action";
 import {useDispatch, useSelector} from "react-redux";
-import {ACTION_TYPE} from "../reducer/count.reducer";
+import {ACTION_TYPE} from "../../reducer/count.reducer";
 
 export default () => {
 

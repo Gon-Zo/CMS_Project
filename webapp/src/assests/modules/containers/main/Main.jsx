@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components"
 
-import Slider from "../component/Slider.jsx";
+import Slider from "../../component/Slider.jsx";
 
-import test1 from "../../images/test1.png";
-import test2 from "../../images/test2.png";
-import test3 from "../../images/test3.jpg";
+import test1 from "../../../images/test1.png";
+import test2 from "../../../images/test2.png";
+import test3 from "../../../images/test3.jpg";
 
 export default () => {
 
