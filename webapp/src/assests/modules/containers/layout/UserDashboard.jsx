@@ -16,7 +16,7 @@ background-color : #F4F2F7
 `;
 
 export default ({children}) => {
-
+    console.log("check role")
     return (
         <Wrapper>
             <LeftSidebar name={"User Dash"}/>
