@@ -17,7 +17,7 @@ text-align: center;
 
 const SidebarName = styled.h5`
       font-weight: bold;
-      color : #1479FF;
+      color : ${props => props.theme === "User" ? "#1479FF" : "#f00"} ;
 `
 
 const MenuItems = styled.li`
@@ -46,6 +46,8 @@ const IconName = styled.div`
 
 export default (props) =>{
 
+    const theme = props.theme;
+
     const name = props.name;
 
     const data = props.data;
@@ -53,7 +55,7 @@ export default (props) =>{
    return(
        <SidebarWrap className="p-5">
           <SidebarHeader>
-             <SidebarName>
+             <SidebarName theme={theme}>
                  {name}
              </SidebarName>
           </SidebarHeader>

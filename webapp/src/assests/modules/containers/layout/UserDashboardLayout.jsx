@@ -19,7 +19,7 @@ export default ({children}) => {
     console.log("check role")
     return (
         <Wrapper>
-            <LeftSidebar name={"User Dash"}/>
+            <LeftSidebar name={"User Dash"} theme={"User"}/>
             <Container className="container-fluid">
                 {children}
             </Container>
