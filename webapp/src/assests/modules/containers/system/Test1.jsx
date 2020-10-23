@@ -1,4 +1,5 @@
 import React from "react";
+import WebEditor from "../../component/WebEditor.jsx";
 
 export default ()=>{
     return (
@@ -6,6 +7,9 @@ export default ()=>{
            <span>
                Test1
            </span>
+
+            <WebEditor height={500} isMenu={false}/>
+
         </div>
     )
 }
