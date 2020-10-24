@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {MENU_TYPE} from "../../utils/app.eumns";
+import {COLOR} from "../../utils/app.color";
 
 const SidebarWrap = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme === MENU_TYPE.U ? COLOR.Ebony : "#fff" };
   padding-top: 2em !important;
   height: 100vh;
   overflow-y: auto;
@@ -17,7 +19,7 @@ text-align: center;
 
 const SidebarName = styled.h5`
       font-weight: bold;
-      color : ${props => props.theme === "User" ? "#1479FF" : "#f00"} ;
+      color : ${props => props.theme === MENU_TYPE.U ? COLOR.TurquoiseBlue : COLOR.LIGTH_BLUE} ;
 `
 
 const MenuItems = styled.li`
@@ -53,21 +55,24 @@ export default (props) =>{
     const data = props.data;
 
    return(
-       <SidebarWrap className="p-5">
-          <SidebarHeader>
+       <SidebarWrap className="p-5" theme={theme}>
+          <SidebarHeader theme={theme}>
              <SidebarName theme={theme}>
                  {name}
              </SidebarName>
           </SidebarHeader>
 
           <ul className="list-unstyled mt-3">
-              <MenuItem/>
+              <MenuItem theme={theme}/>
           </ul>
        </SidebarWrap>
    )
 }
 
-const MenuItem = () => {
+const MenuItem = (props) => {
+
+    const them = props.theme
+
     return (
         <MenuItems>
             <Link to={"/"}>
