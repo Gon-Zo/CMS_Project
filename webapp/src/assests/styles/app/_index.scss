@@ -4,3 +4,17 @@
 @import "comm";
 @import "login";
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.test {
+  position: absolute;
+  top: 0;
+  left: 10rem;
+  width: 80%;
+  height: 500px;
+  background-color: #ffff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  z-index: 3;
+}
+

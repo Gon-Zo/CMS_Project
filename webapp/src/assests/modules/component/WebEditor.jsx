@@ -1,12 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { Editor } from '@tinymce/tinymce-react';
+// import { AnimateOnChange } from 'react-animation'
 import styled from 'styled-components'
-
-const EditorTitle = styled.div`
-   background-color: #f00;
-   font-size : 20px;
-   display:inline-block;
-`;
 
 export default (props) => {
 
@@ -52,8 +47,7 @@ export default (props) => {
         input.click();
     }
 
-
-        const setting = {
+    const setting = {
         menubar: isMenu,
         max_height: height,
         max_width: height,
@@ -61,9 +55,10 @@ export default (props) => {
         min_width: height,
         selector: 'textarea',
         image_title: true,
+        content_css: 'writer',
         automatic_uploads: true,
         file_picker_types: 'image',
-        file_picker_callback: filePickerCallback ,
+        file_picker_callback: filePickerCallback,
         plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
@@ -76,28 +71,65 @@ export default (props) => {
     }
 
     return (
-        <>
-            <div>
-                <EditorTitle>Title</EditorTitle>
-                <PickerBoard/>
-                <input/>
-            </div>
+        <div style={{
+            position: "relative"
+        }}>
             <Editor
                 initialValue=""
                 init={setting}
-                onEditorChange={handleEditorChange}
-            />
-        </>
+                onEditorChange={handleEditorChange}/>
+
+            <ButtonBox className={"mt-2"}>
+                <button>Next</button>
+            </ButtonBox>
+
+            {/*<AnimateOnChange>*/}
+            {/*    <div className="test" show={false}>*/}
+            {/*        <span>TEST</span>*/}
+            {/*    </div>*/}
+            {/*</AnimateOnChange>*/}
+
+        </div>
     )
+
 }
 
-const PickerBoard = () => {
-    return (
-        <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
-    )
-}
+
+
+
+const ButtonBox = styled.div `
+    width : 100%;
+    text-align : end;
+`;
+
+// const EditorButton = styled.button`
+//
+// `;
+//
+// const CategoryPop = styled.div`
+// display : ${props => props.show ? "block" : "none" }
+// `;
+
+
+// const Button = (flag) => {
+//     if (flag) {
+//         return (
+//             <div>
+//                 <EditorButton onClick={() => {
+//                     setPopUp(true)
+//                 }} className="m-1">button1</EditorButton>
+//                 <EditorButton className="m-1">button2</EditorButton>
+//             </div>
+//
+//         )
+//     } else {
+//         return (
+//             <div>
+//                 <EditorButton className="m-1">button3</EditorButton>
+//                 <EditorButton className="m-1">button4</EditorButton>
+//             </div>
+//
+//         )
+//     }
+// }
+
