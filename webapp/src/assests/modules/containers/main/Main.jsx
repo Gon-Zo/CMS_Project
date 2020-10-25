@@ -9,8 +9,7 @@ import test3 from "../../../images/test3.jpg";
 
 export default () => {
 
-    const srcArray = [
-        test1 , test2 , test3
+    const srcArray = [ test1 , test2 , test3
     ]
 
     return (

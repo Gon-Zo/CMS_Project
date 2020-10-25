@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { Editor } from '@tinymce/tinymce-react';
-// import { AnimateOnChange } from 'react-animation'
 import styled from 'styled-components'
 
 export default (props) => {
@@ -83,12 +82,6 @@ export default (props) => {
                 <button>Next</button>
             </ButtonBox>
 
-            {/*<AnimateOnChange>*/}
-            {/*    <div className="test" show={false}>*/}
-            {/*        <span>TEST</span>*/}
-            {/*    </div>*/}
-            {/*</AnimateOnChange>*/}
-
         </div>
     )
 
@@ -101,35 +94,3 @@ const ButtonBox = styled.div `
     width : 100%;
     text-align : end;
 `;
-
-// const EditorButton = styled.button`
-//
-// `;
-//
-// const CategoryPop = styled.div`
-// display : ${props => props.show ? "block" : "none" }
-// `;
-
-
-// const Button = (flag) => {
-//     if (flag) {
-//         return (
-//             <div>
-//                 <EditorButton onClick={() => {
-//                     setPopUp(true)
-//                 }} className="m-1">button1</EditorButton>
-//                 <EditorButton className="m-1">button2</EditorButton>
-//             </div>
-//
-//         )
-//     } else {
-//         return (
-//             <div>
-//                 <EditorButton className="m-1">button3</EditorButton>
-//                 <EditorButton className="m-1">button4</EditorButton>
-//             </div>
-//
-//         )
-//     }
-// }
-
