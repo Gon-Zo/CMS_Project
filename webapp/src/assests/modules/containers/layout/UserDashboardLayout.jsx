@@ -2,9 +2,6 @@ import React from "react";
 import styled from 'styled-components'
 import LeftSidebar from "../../component/LeftSidebar.jsx";
 import {MENU_TYPE} from "../../../utils/app.eumns";
-// import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-// import Board from "./Board.jsx";
-// import Post from "./Post.jsx";
 
 const Wrapper = styled.div`
 display: flex;
@@ -21,9 +18,14 @@ export default ({children}) => {
 
     const menuTitle = "User Dash"
 
+    const menuUri = [
+        {to : "/user/board" , icon : ['fas', 'user'] , name : "Board"},
+        {to : "/user/post" , icon : ['fas', 'user'] , name : "Post"},
+    ]
+
     return (
         <Wrapper>
-            <LeftSidebar name={menuTitle} theme={MENU_TYPE.U}/>
+            <LeftSidebar name={menuTitle} theme={MENU_TYPE.S} data={menuUri}/>
             <Container className="container-fluid">
                 {children}
             </Container>

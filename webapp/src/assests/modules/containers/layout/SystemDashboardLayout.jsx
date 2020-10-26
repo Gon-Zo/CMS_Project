@@ -19,9 +19,14 @@ export default ({children}) => {
 
     const menuTitle = "System Dash"
 
+    const menuUri = [
+        {to : "/system/test1" , icon : ['fas', 'user'] , name : "Test1"},
+        {to : "/system/test2" , icon : ['fas', 'user'] , name : "Test2"},
+    ]
+
     return (
         <Wrapper>
-            <LeftSidebar name={menuTitle} theme={MENU_TYPE.U}/>
+            <LeftSidebar name={menuTitle} theme={MENU_TYPE.S} data={menuUri}/>
             <Container className="container-fluid">
                 {children}
             </Container>

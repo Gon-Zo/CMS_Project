@@ -5,6 +5,61 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {MENU_TYPE} from "../../utils/app.eumns";
 import {COLOR} from "../../utils/app.color";
 
+export default (props) =>{
+
+    const theme = props.theme;
+
+    const name = props.name;
+
+    const data = props.data;
+
+   return(
+       <SidebarWrap className="p-5" theme={theme}>
+          <SidebarHeader theme={theme}>
+             <SidebarName theme={theme}>
+                 {name}
+             </SidebarName>
+          </SidebarHeader>
+
+          <ul className="list-unstyled mt-3">
+              <MenuItem theme={theme} data={data}/>
+          </ul>
+       </SidebarWrap>
+   )
+}
+
+const MenuItem = (props) => {
+
+    const theme = props.theme
+
+    const data = props.data
+
+    console.log(JSON.stringify(data))
+
+    return (
+        <MenuItems>
+            {
+                data.map(d => (
+                    <Link to={d.to}>
+                        <IconBox>
+                            <FontAwesomeIcon style={{
+                                width: "30px",
+                                height: "30px",
+                                color: "#1479FF"
+                            }} icon={d.icon}/>
+                        </IconBox>
+
+                        <IconName className="mt-3">
+                            <span>{d.name}</span>
+                        </IconName>
+                    </Link>
+                ))
+            }
+        </MenuItems>
+    )
+}
+
+
 const SidebarWrap = styled.div`
   background-color: ${props => props.theme === MENU_TYPE.U ? COLOR.Ebony : "#fff" };
   padding-top: 2em !important;
@@ -45,49 +100,3 @@ const IconName = styled.div`
  font-size: 15px;
  color: #193b68;
 `
-
-export default (props) =>{
-
-    const theme = props.theme;
-
-    const name = props.name;
-
-    const data = props.data;
-
-   return(
-       <SidebarWrap className="p-5" theme={theme}>
-          <SidebarHeader theme={theme}>
-             <SidebarName theme={theme}>
-                 {name}
-             </SidebarName>
-          </SidebarHeader>
-
-          <ul className="list-unstyled mt-3">
-              <MenuItem theme={theme}/>
-          </ul>
-       </SidebarWrap>
-   )
-}
-
-const MenuItem = (props) => {
-
-    const them = props.theme
-
-    return (
-        <MenuItems>
-            <Link to={"/"}>
-                <IconBox>
-                    <FontAwesomeIcon style={{
-                        width: "30px",
-                        height: "30px",
-                        color: "#1479FF"
-                    }} icon={['fas', 'user']}/>
-                </IconBox>
-
-                <IconName className="mt-3">
-                    <span>TEST1</span>
-                </IconName>
-            </Link>
-        </MenuItems>
-    )
-}
