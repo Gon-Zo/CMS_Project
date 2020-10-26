@@ -21,7 +21,7 @@ export default ({children}) => {
 
     return (
         <Wrapper>
-            <LeftSidebar name={menuTitle} theme={MENU_TYPE.S}/>
+            <LeftSidebar name={menuTitle} theme={MENU_TYPE.U}/>
             <Container className="container-fluid">
                 {children}
             </Container>
