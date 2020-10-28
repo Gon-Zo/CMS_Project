@@ -5,6 +5,7 @@ import Login from "./assests/modules/containers/main/Login.jsx";
 import SignIn from "./assests/modules/containers/main/SignIn.jsx";
 import Main from "./assests/modules/containers/main/Main.jsx";
 import Count from "./assests/modules/containers/main/Count.jsx";
+import List from "./assests/modules/containers/main/List.jsx";
 import Board from "./assests/modules/containers/user/Board.jsx";
 import Post from "./assests/modules/containers/user/Post.jsx";
 import Test1 from "./assests/modules/containers/system/Test1.jsx";
@@ -42,6 +43,7 @@ export default () => {
                             <Switch>
                                 <Route exact path={"/"} component={Main}/>
                                 <Route path={"/count"} component={Count}/>
+                                <Route path={"/list"} component={List}/>
                                 <Route path={"/*"} component={Error}/>
                             </Switch>
                         </MainLayout>

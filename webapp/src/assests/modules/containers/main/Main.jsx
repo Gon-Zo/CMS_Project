@@ -29,7 +29,7 @@ export default () => {
 }
 
 
-const TopList = () => {
+export const TopList = () => {
 
     const ListWrap = styled.ul`
     list-style:none;

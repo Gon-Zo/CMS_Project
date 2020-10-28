@@ -17,7 +17,7 @@ background-color : #F4F2F7
 export default ({children}) => {
     console.log("check role")
 
-    const menuTitle = "System Dash"
+    const menuTitle = "React CMS"
 
     const menuUri = [
         {to : "/system/test1" , icon : ['fas', 'user'] , name : "Test1"},

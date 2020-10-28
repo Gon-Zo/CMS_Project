@@ -26,7 +26,7 @@ export default () => {
 
             <Link className="navbar-brand" to={"/"}>
                 <img src={logo} className="App-logo App-logo-size" alt="logo"/>
-                <span className="header-name ft-color-turquoiseBlue ">React CMS</span>
+                <span className="header-name ft-color-turquoiseBlue ">React Community</span>
             </Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
