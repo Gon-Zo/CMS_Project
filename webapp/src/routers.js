@@ -6,13 +6,12 @@ import SignIn from "./assests/modules/containers/main/SignIn.jsx";
 import Main from "./assests/modules/containers/main/Main.jsx";
 import Count from "./assests/modules/containers/main/Count.jsx";
 import List from "./assests/modules/containers/main/List.jsx";
-import Board from "./assests/modules/containers/user/Board.jsx";
-import Post from "./assests/modules/containers/user/Post.jsx";
-import Test1 from "./assests/modules/containers/system/Test1.jsx";
-import Test2 from "./assests/modules/containers/system/Test2.jsx";
 import MainLayout from "./assests/modules/containers/layout/MainLayout.jsx";
-import UserDashboardLayout from "./assests/modules/containers/layout/UserDashboardLayout.jsx";
+
 import SystemDashboardLayout from "./assests/modules/containers/layout/SystemDashboardLayout.jsx";
+import Category from "./assests/modules/containers/system/Category.jsx";
+import Post from "./assests/modules/containers/system/Post.jsx";
+import User from "./assests/modules/containers/system/User.jsx";
 
 export default () => {
     return (
@@ -22,19 +21,12 @@ export default () => {
                     <Route path={"/system"}>
                         <SystemDashboardLayout>
                             <Switch>
-                                <Route path={"/system/test1"} component={Test1}/>
-                                <Route path={"/system/test2"} component={Test2}/>
+                                <Route path={"/system/category"} component={Category}/>
+                                <Route path={"/system/Post"} component={Post}/>
+                                <Route path={"/system/category"} component={User}/>
+                                <Route path={"/system*"} component={Error}/>
                             </Switch>
                         </SystemDashboardLayout>
-                    </Route>
-                    <Route path={"/user"}>
-                        <UserDashboardLayout>
-                            <Switch>
-                                <Route path={`/user/board`} component={Board}/>
-                                <Route path={`/user/post`} component={Post}/>
-                                <Route path={"/user*"} component={Error}/>
-                            </Switch>
-                        </UserDashboardLayout>
                     </Route>
                     <Route path="/login" component={Login}/>
                     <Route path="/sign-in" component={SignIn}/>

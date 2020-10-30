@@ -20,8 +20,9 @@ export default ({children}) => {
     const menuTitle = "React CMS"
 
     const menuUri = [
-        {to : "/system/test1" , icon : ['fas', 'user'] , name : "Test1"},
-        {to : "/system/test2" , icon : ['fas', 'user'] , name : "Test2"},
+        {to : "/system/category" , icon : ['fas', 'user'] , name : "Test1"},
+        {to : "/system/user" , icon : ['fas', 'user'] , name : "Test2"},
+        {to : "/system/post" , icon : ['fas', 'user'] , name : "Test2"},
     ]
 
     return (
