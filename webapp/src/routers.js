@@ -23,8 +23,8 @@ export default () => {
                             <Switch>
                                 <Route path={"/system/category"} component={Category}/>
                                 <Route path={"/system/Post"} component={Post}/>
-                                <Route path={"/system/category"} component={User}/>
-                                <Route path={"/system*"} component={Error}/>
+                                <Route path={"/system/user"} component={User}/>
+                                <Route path={"/system/*"} component={Error}/>
                             </Switch>
                         </SystemDashboardLayout>
                     </Route>

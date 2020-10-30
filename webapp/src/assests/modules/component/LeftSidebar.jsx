@@ -39,8 +39,8 @@ const MenuItem = (props) => {
     return (
         <MenuItems>
             {
-                data.map(d => (
-                    <Link to={d.to}>
+                data.map((d , idx) => (
+                    <Link key={idx} to={d.to}>
                         <IconBox>
                             <FontAwesomeIcon style={{
                                 width: "30px",
