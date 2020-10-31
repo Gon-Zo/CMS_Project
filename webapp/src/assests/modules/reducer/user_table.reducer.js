@@ -39,11 +39,36 @@ const initState = {
     ],
 
     column: [
-        {columnId: "email", columnName: "이메일", sort: "N"},
-        {columnId: "nickname", columnName: "닉네임", sort: "N"},
-        {columnId: "activate", columnName: "활성화", sort: "N"},
-        {columnId: "create_date", columnName: "가입날", sort: "N"},
-        {columnId: "update_date", columnName: "최근로그인", sort: "N"},
+        {
+            columnId: "email",
+            columnName: "이메일",
+            sort: "N",
+            show: false
+        },
+        {
+            columnId: "nickname",
+            columnName: "닉네임",
+            sort: "N",
+            show: false
+        },
+        {
+            columnId: "activate",
+            columnName: "활성화",
+            sort: "N",
+            show: false
+        },
+        {
+            columnId: "create_date",
+            columnName: "가입날",
+            sort: "N",
+            show: false
+        },
+        {
+            columnId: "update_date",
+            columnName: "최근로그인",
+            sort: "N",
+            show: false
+        },
     ]
 
 }

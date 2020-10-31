@@ -27,25 +27,36 @@ const Table = ({header, data , dispatch}) => {
                 <th scope="col">#</th>
                 {
                     header.map((col, idx) => (
-                        <th scope="col" key={idx}>
-                                <span>
-                                    {col.columnName}
-                                </span>
+                        <th key={idx}>
                             <div style={{
-                                display: "inline-block",
-                                float : "right",
+                                display: "flex",
+                                justifyContent: "space-between"
                             }}>
-                                <button onClick={()=>{
-                                    if (col.sort === "N" || col.sort === "A") {
-                                        col.sort = "D"
-                                    } else {
-                                        col.sort = "A"
-                                    }
-                                    dispatch(_onUpdateToHeader(header))
-                                }}>
-                                    <FontAwesomeIcon
-                                        icon={['fas', col.sort === "A" || col.sort === "N" ? 'chevron-up' : "chevron-down"]}/>
-                                </button>
+                                <div style={{
+                                    cursor : "pointer"
+                                }}
+                                     onClick={()=>{
+                                         console.log("Header click")
+                                         col.show = true
+                                         col.sort = "A"
+                                         dispatch(_onUpdateToHeader(header))
+                                     }}
+                                >
+                                    {col.columnName}
+                                </div>
+                                <div>
+                                    <button
+                                        style={{
+                                            display: col.show ? "inline" : "none",
+                                        }}
+                                        onClick={()=>{
+                                            console.log("success")
+                                        }}
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={['fas', col.sort === "A" ? 'chevron-up' : "chevron-down"]}/>
+                                    </button>
+                                </div>
                             </div>
                         </th>
                     ))
