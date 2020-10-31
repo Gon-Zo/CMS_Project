@@ -36,10 +36,11 @@ const Table = ({header, data , dispatch}) => {
                                     cursor : "pointer"
                                 }}
                                      onClick={()=>{
-                                         console.log("Header click")
-                                         col.show = true
-                                         col.sort = "A"
-                                         dispatch(_onUpdateToHeader(header))
+                                         if (col.sort === "N") {
+                                             col.show = true
+                                             col.sort = "A"
+                                             dispatch(_onUpdateToHeader(header))
+                                         }
                                      }}
                                 >
                                     {col.columnName}
@@ -50,7 +51,14 @@ const Table = ({header, data , dispatch}) => {
                                             display: col.show ? "inline" : "none",
                                         }}
                                         onClick={()=>{
-                                            console.log("success")
+
+                                            if(col.sort === "A"){
+                                                col.sort = "D"
+                                            }else{
+                                                col.sort ="N"
+                                                col.show = false
+                                            }
+                                            dispatch(_onUpdateToHeader(header))
                                         }}
                                     >
                                         <FontAwesomeIcon
