@@ -1,6 +1,7 @@
 import React from "react";
 import {_onUpdateToHeader} from "../actions/user_table.action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import styled from 'styled-components'
 
 export default ({data, header, dispatch}) => {
     return (
