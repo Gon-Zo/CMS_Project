@@ -15,7 +15,10 @@ export const fetchLogin = (payload , history) => {
                 axios.defaults.headers.common.Authorization = res.data.message
 
                 setTimeout(function () {
-                    dispatch({type: SUCCESS(ACTION_TYPE.UPDATE_LOGIN)})
+                    dispatch({
+                            type: SUCCESS(ACTION_TYPE.UPDATE_LOGIN),
+                            payload : res.data.message
+                    })
                     history.push("/")
                 }, 3000);
 

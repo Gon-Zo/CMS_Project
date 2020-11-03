@@ -16,14 +16,17 @@ const LoginContainer = () => {
 
     const history = useHistory()
 
-    const login = useSelector(state => state.Login)
-
-    const isLoad = login.loading
+    const {load, data, err} = useSelector(state => {
+        const payload = state.Login
+        return {
+            load : payload.load,
+            error : payload.error,
+            data : payload.data
+        }
+    })
 
     const _onLogin = () => {
-
         dispatch(fetchLogin({"email": email, "password": password}, history))
-
     }
 
     const _onLoginToKakao = () => {
@@ -43,7 +46,9 @@ const LoginContainer = () => {
 
         <div className="login-wrap">
 
-            <AwesomeComponent isShow={isLoad} color={"#61dafb"}/>
+            {
+                load === true && <AwesomeComponent color={"#61dafb"}/>
+            }
 
             <div className="login-box">
 

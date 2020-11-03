@@ -6,35 +6,30 @@ export const ACTION_TYPE = {
 }
 
 const initState = {
-    loading: false,
-    updateSuccess: false,
-    errorMessage : null,
-    payload: false
+    load: false,
+    error : null,
+    data: null
 }
 
 export default (state = initState, action) => {
 
     switch (action.type) {
         case SUCCESS(ACTION_TYPE.UPDATE_LOGIN):
-            const result =  {
+            return {
                 ...initState,
-                loading: false,
-                updateSuccess: true,
-                payload: true
+                load: false,
+                payload: action.payload
             }
-            console.log('res' , JSON.stringify(result))
-            return result;
-
         case REQUEST(ACTION_TYPE.UPDATE_LOGIN) :
             return {
                 ...initState,
-                loading: true
+                load: true
             }
         case FAILURE(ACTION_TYPE.UPDATE_LOGIN)   :
             return {
                 ...initState,
-                loading: false,
-                errorMessage: action.payload
+                load: false,
+                error: action.payload
             }
         case ACTION_TYPE.RESET:
             return {

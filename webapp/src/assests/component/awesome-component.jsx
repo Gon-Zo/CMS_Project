@@ -10,11 +10,7 @@ const override = css`
 
 const AwesomeComponent = (props) => {
 
-    let isShow = props.isShow
-
     let color = props.color
-
-    if (typeof isShow == 'undefined') isShow = false
 
     if (typeof color == 'undefined') color = "#f00"
 
@@ -24,7 +20,7 @@ const AwesomeComponent = (props) => {
                 css={override}
                 size={150}
                 color={color}
-                loading={isShow}
+                loading={true}
             />
         </div>
     )
