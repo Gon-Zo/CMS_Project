@@ -2,8 +2,7 @@ import React , {useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchMenu} from "./menu.action";
-import Header from "../../component/Header";
-import Loader from "react-spinners/BarLoader";
+import Header from "../../component/Header.jsx";
 
 const MenuContainer = () =>{
 
