@@ -3,15 +3,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // container
 import DashboardLayout from "./assests/modules/public/dashboard-layout.jsx";
-import CategoryContainer from "./assests/modules/category/category-container.jsx";
+import CategoryContainer from "./assests/modules/category/category.container.jsx";
 import PostContainer from "./assests/modules/post/post-container.jsx";
-import UserContainer from "./assests/modules/user/user-container.jsx";
-import LoginContainer from "./assests/modules/login/login-container.jsx";
-import SignInContainer from "./assests/modules/sign-up/sign-in-container.jsx";
-import MainContainer from "./assests/modules/main/main-container.jsx";
-import CountContainer from "./assests/modules/count/count-container.jsx";
+import UserContainer from "./assests/modules/user/user.container.jsx";
+import LoginContainer from "./assests/modules/login/login.container.jsx";
+import SignInContainer from "./assests/modules/sign-up/sign-in.container.jsx";
+import MainContainer from "./assests/modules/main/main.container.jsx";
+import CountContainer from "./assests/modules/count/count.container.jsx";
 import Error from "./assests/modules/error/error.jsx";
-import ListContainer from "./assests/modules/list/list-container.jsx";
+import ListContainer from "./assests/modules/list/list.container.jsx";
 import PublicLayout from "./assests/modules/public/public-layout.jsx";
 
 export default () => {

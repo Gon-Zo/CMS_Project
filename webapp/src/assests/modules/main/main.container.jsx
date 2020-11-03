@@ -1,6 +1,6 @@
 import React from "react";
 
-import ImageSliderContainer from "./image-slider-container.jsx";
+import ImageSliderContainer from "./image-slider.container.jsx";
 import MainListContainer from "./main-list.container.jsx";
 
 const MainContainer = () => {
