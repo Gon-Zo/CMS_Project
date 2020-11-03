@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {MENU_TYPE} from "../../utils/app.eumns";
-import {COLOR} from "../../utils/app.color";
+import {MENU_TYPE} from "../utils/app.eumns";
+import {COLOR} from "../utils/app.color";
 
-export default (props) =>{
+const LeftSidebar = (props) => {
 
     const theme = props.theme;
 
@@ -13,19 +13,19 @@ export default (props) =>{
 
     const data = props.data;
 
-   return(
-       <SidebarWrap className="p-5" theme={theme}>
-          <SidebarHeader theme={theme}>
-             <SidebarName theme={theme}>
-                 {name}
-             </SidebarName>
-          </SidebarHeader>
+    return (
+        <SidebarWrap className="p-5" theme={theme}>
+            <SidebarHeader theme={theme}>
+                <SidebarName theme={theme}>
+                    {name}
+                </SidebarName>
+            </SidebarHeader>
 
-          <ul className="list-unstyled mt-3">
-              <MenuItem theme={theme} data={data}/>
-          </ul>
-       </SidebarWrap>
-   )
+            <ul className="list-unstyled mt-3">
+                <MenuItem theme={theme} data={data}/>
+            </ul>
+        </SidebarWrap>
+    )
 }
 
 const MenuItem = (props) => {
@@ -39,7 +39,7 @@ const MenuItem = (props) => {
     return (
         <MenuItems>
             {
-                data.map((d , idx) => (
+                data.map((d, idx) => (
                     <Link key={idx} to={d.to}>
                         <IconBox>
                             <FontAwesomeIcon style={{
@@ -61,7 +61,7 @@ const MenuItem = (props) => {
 
 
 const SidebarWrap = styled.div`
-  background-color: ${props => props.theme === MENU_TYPE.U ? COLOR.Ebony : "#fff" };
+  background-color: ${props => props.theme === MENU_TYPE.U ? COLOR.Ebony : "#fff"};
   padding-top: 2em !important;
   height: 100vh;
   overflow-y: auto;
@@ -100,3 +100,5 @@ const IconName = styled.div`
  font-size: 15px;
  color: #193b68;
 `
+
+export default LeftSidebar

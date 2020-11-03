@@ -1,25 +1,22 @@
-import logo from "../../images/logo.svg";
+import logo from "../images/logo.svg";
 import {Link} from "react-router-dom";
 import React, {useEffect} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchMenu} from "../actions/public.action";
-// import axios from "axios";
+import {fetchMenu} from "../modules/main/menu.action";
 
-export default () => {
+const Header = () => {
 
     const history = useHistory()
 
     const dispatch = useDispatch()
 
-    const menuItems = useSelector(state => state.Public.data)
+    const menuItems = useSelector(state => state.Menu).data
 
-    useEffect(()=>{
-       dispatch(fetchMenu())
-    },[])
-
-    // const authorization =  axios.defaults.headers.common.Authorization
+    useEffect(() => {
+        dispatch(fetchMenu())
+    }, [])
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">
@@ -119,3 +116,5 @@ const NavToggleItem = () => {
         </li>
     )
 }
+
+export default Header

@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './assests/utils/fontawesome.util'
 import {createStore , applyMiddleware} from "redux";
-import {rootReducer} from '../src/assests/modules/reducer'
+import {rootReducer} from './assests/modules/reducer'
 import {Provider} from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger'

@@ -29,7 +29,7 @@ justify-content: space-between;
 display: flex;
 `
 
-export default (props) => {
+const ImageSlider =  (props) => {
 
     const data = props.data
 
@@ -106,3 +106,6 @@ const ButtonMode = (props) => {
     return <></>
 
 }
+
+
+export default ImageSlider

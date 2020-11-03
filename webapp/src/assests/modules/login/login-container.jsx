@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import logo from "../../../images/logo.svg";
+import logo from "../../images/logo.svg";
 import {useDispatch, useSelector} from "react-redux";
-import AwesomeComponent from "../../component/AwesomeComponent.jsx";
-import {fetchLogin} from "../../actions/login.action";
+import AwesomeComponent from "../../component/awesome-component.jsx";
+import {fetchLogin} from "./login.action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Link, useHistory} from "react-router-dom";
 
-export default () => {
+const LoginContainer = () => {
 
     const [email, setEmail] = useState('')
 
@@ -102,3 +102,5 @@ export default () => {
     )
 
 }
+
+export default LoginContainer

@@ -1,5 +1,5 @@
 import {SUCCESS} from "../../utils/action-type.util";
-import {ACTION_TYPE} from "../reducer/user_table.reducer";
+import {ACTION_TYPE} from "./user-table.reducer";
 
 export const _onUpdateToHeader = (payload) => {
     return {

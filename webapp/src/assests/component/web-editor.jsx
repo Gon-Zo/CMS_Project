@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Editor } from '@tinymce/tinymce-react';
 import styled from 'styled-components'
 
-export default (props) => {
+const WebEditor =  (props) => {
 
     const height = props.height
 
@@ -84,13 +84,11 @@ export default (props) => {
 
         </div>
     )
-
 }
-
-
-
 
 const ButtonBox = styled.div `
     width : 100%;
     text-align : end;
 `;
+
+export default WebEditor

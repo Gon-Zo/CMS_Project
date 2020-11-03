@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {updateCount} from "../../actions/count.action";
+import {updateCount} from "./count.action";
 import {useDispatch, useSelector} from "react-redux";
-import {ACTION_TYPE} from "../../reducer/count.reducer";
+import {ACTION_TYPE} from "./count.reducer";
 
-export default () => {
+const CountContainer = () => {
 
     const [num, setNum] = useState(0)
 
@@ -41,3 +41,5 @@ export default () => {
     )
 
 }
+
+export default CountContainer

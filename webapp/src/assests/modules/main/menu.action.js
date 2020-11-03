@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {SUCCESS} from "../../utils/action-type.util";
-import {ACTION_TYPE} from "../reducer/public.reducer";
+import {ACTION_TYPE} from "./menu.reducer";
 
 export const fetchMenu = () =>{
     return (dispatch) =>{

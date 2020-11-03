@@ -1,9 +1,8 @@
 import React from "react";
-import {_onUpdateToHeader} from "../actions/user_table.action";
+import {_onUpdateToHeader} from "../modules/user/user-table.action";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import styled from 'styled-components'
 
-export default ({data, header, dispatch}) => {
+const CmsTable = ({data, header, dispatch}) => {
     return (
         <div>
             <div style={{
@@ -19,7 +18,7 @@ export default ({data, header, dispatch}) => {
     )
 }
 
-const Table = ({header, data , dispatch}) => {
+const Table = ({header, data, dispatch}) => {
 
     return (
         <table className="table mt-3">
@@ -34,9 +33,9 @@ const Table = ({header, data , dispatch}) => {
                                 justifyContent: "space-between"
                             }}>
                                 <div style={{
-                                    cursor : "pointer"
+                                    cursor: "pointer"
                                 }}
-                                     onClick={()=>{
+                                     onClick={() => {
                                          if (col.sort === "N") {
                                              col.show = true
                                              col.sort = "A"
@@ -51,12 +50,12 @@ const Table = ({header, data , dispatch}) => {
                                         style={{
                                             display: col.show ? "inline" : "none",
                                         }}
-                                        onClick={()=>{
+                                        onClick={() => {
 
-                                            if(col.sort === "A"){
+                                            if (col.sort === "A") {
                                                 col.sort = "D"
-                                            }else{
-                                                col.sort ="N"
+                                            } else {
+                                                col.sort = "N"
                                                 col.show = false
                                             }
                                             dispatch(_onUpdateToHeader(header))
@@ -78,7 +77,7 @@ const Table = ({header, data , dispatch}) => {
                     <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         {
-                            header.map( (h , j ) => (
+                            header.map((h, j) => (
                                 <td key={j}>
                                     <CheckBox val={payload[h.columnId]}/>
                                 </td>
@@ -92,9 +91,12 @@ const Table = ({header, data , dispatch}) => {
     )
 }
 
-const CheckBox = ({val}) =>{
-    if(typeof val === "boolean"){
+const CheckBox = ({val}) => {
+    if (typeof val === "boolean") {
         return <input type="checkbox" defaultChecked={val} defaultValue={val}/>
     }
     return <span>{val}</span>
 }
+
+export default CmsTable
+

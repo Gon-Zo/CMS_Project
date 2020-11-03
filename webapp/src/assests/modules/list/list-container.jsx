@@ -1,14 +1,11 @@
 import React from "react";
-import {TopList} from "./Main.jsx";
 
-export default () =>{
+const ListContainer = () => {
 
     return (
         <div className="container">
             <div className="row mt-4">
-               <TopList/>
-               <TopList/>
-               <TopList/>
+
             </div>
             <Table/>
         </div>
@@ -53,3 +50,4 @@ const Table = () => {
     )
 }
 
+export default ListContainer

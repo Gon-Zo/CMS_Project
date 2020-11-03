@@ -1,17 +1,18 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Error from "./assests/modules/containers/main/Error.jsx";
-import Login from "./assests/modules/containers/main/Login.jsx";
-import SignIn from "./assests/modules/containers/main/SignIn.jsx";
-import Main from "./assests/modules/containers/main/Main.jsx";
-import Count from "./assests/modules/containers/main/Count.jsx";
-import List from "./assests/modules/containers/main/List.jsx";
-import MainLayout from "./assests/modules/containers/layout/MainLayout.jsx";
 
-import SystemDashboardLayout from "./assests/modules/containers/layout/SystemDashboardLayout.jsx";
-import Category from "./assests/modules/containers/system/Category.jsx";
-import Post from "./assests/modules/containers/system/Post.jsx";
-import User from "./assests/modules/containers/system/User.jsx";
+// container
+import DashboardLayout from "./assests/modules/public/dashboard-layout.jsx";
+import CategoryContainer from "./assests/modules/category/category-container.jsx";
+import PostContainer from "./assests/modules/post/post-container.jsx";
+import UserContainer from "./assests/modules/user/user-container.jsx";
+import LoginContainer from "./assests/modules/login/login-container.jsx";
+import SignInContainer from "./assests/modules/sign-up/sign-in-container.jsx";
+import MainContainer from "./assests/modules/main/main-container.jsx";
+import CountContainer from "./assests/modules/count/count-container.jsx";
+import Error from "./assests/modules/error/error.jsx";
+import ListContainer from "./assests/modules/list/list-container.jsx";
+import PublicLayout from "./assests/modules/public/public-layout.jsx";
 
 export default () => {
     return (
@@ -19,26 +20,26 @@ export default () => {
             <Router>
                 <Switch>
                     <Route path={"/system"}>
-                        <SystemDashboardLayout>
+                        <DashboardLayout>
                             <Switch>
-                                <Route path={"/system/category"} component={Category}/>
-                                <Route path={"/system/Post"} component={Post}/>
-                                <Route path={"/system/user"} component={User}/>
+                                <Route path={"/system/category"} component={CategoryContainer}/>
+                                <Route path={"/system/post"} component={PostContainer}/>
+                                <Route path={"/system/user"} component={UserContainer}/>
                                 <Route path={"/system/*"} component={Error}/>
                             </Switch>
-                        </SystemDashboardLayout>
+                        </DashboardLayout>
                     </Route>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/sign-in" component={SignIn}/>
+                    <Route path="/login" component={LoginContainer}/>
+                    <Route path="/sign-in" component={SignInContainer}/>
                     <Route exact pate={"/:path?"}>
-                        <MainLayout>
+                        <PublicLayout>
                             <Switch>
-                                <Route exact path={"/"} component={Main}/>
-                                <Route path={"/count"} component={Count}/>
-                                <Route path={"/list"} component={List}/>
+                                <Route exact path={"/"} component={MainContainer}/>
+                                <Route path={"/count"} component={CountContainer}/>
+                                <Route path={"/list"} component={ListContainer}/>
                                 <Route path={"/*"} component={Error}/>
                             </Switch>
-                        </MainLayout>
+                        </PublicLayout>
                     </Route>
                     <Route path={"*"} component={Error}/>
                 </Switch>

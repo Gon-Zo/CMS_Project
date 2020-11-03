@@ -1,4 +1,4 @@
-import {ACTION_TYPE} from "../reducer/count.reducer";
+import {ACTION_TYPE} from "./count.reducer";
 import {SUCCESS} from "../../utils/action-type.util";
 
 export const updateCount = payload => {

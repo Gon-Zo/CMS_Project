@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-export default () =>{
+const SignInContainer = () => {
     return (
         <div>
            <span>
@@ -13,3 +13,5 @@ export default () =>{
         </div>
     )
 }
+
+export default SignInContainer

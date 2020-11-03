@@ -1,5 +1,5 @@
 import {SUCCESS, REQUEST, FAILURE} from '../../utils/action-type.util'
-import {ACTION_TYPE} from '../reducer/login.reducer'
+import {ACTION_TYPE} from './login.reducer'
 import axios from 'axios'
 
 export const fetchLogin = (payload , history) => {

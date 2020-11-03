@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../component/Header.jsx";
 
-export default ({children}) => {
+const PublicLayout = ({children}) => {
     console.log("check role")
     return (
         <>
@@ -10,3 +10,5 @@ export default ({children}) => {
         </>
     )
 }
+
+export default PublicLayout

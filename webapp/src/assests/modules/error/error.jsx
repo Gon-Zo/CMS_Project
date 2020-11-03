@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ()=>{
+const Error = () => {
     return (
         <div>
             <h1>
@@ -9,3 +9,5 @@ export default ()=>{
         </div>
     )
 }
+
+export default Error

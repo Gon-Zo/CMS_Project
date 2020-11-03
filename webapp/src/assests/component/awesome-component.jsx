@@ -8,7 +8,7 @@ const override = css`
   border-color: #61dafb;
 `;
 
-export default (props) => {
+const AwesomeComponent = (props) => {
 
     let isShow = props.isShow
 
@@ -16,7 +16,7 @@ export default (props) => {
 
     if (typeof isShow == 'undefined') isShow = false
 
-    if (typeof color =='undefined') color = "#f00"
+    if (typeof color == 'undefined') color = "#f00"
 
     return (
         <div className="load-wrap">
@@ -30,3 +30,5 @@ export default (props) => {
     )
 
 }
+
+export default AwesomeComponent
