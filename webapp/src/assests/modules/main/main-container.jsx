@@ -1,8 +1,7 @@
 import React from "react";
 
-import TopList from "../../component/top-list.jsx";
 import ImageSliderContainer from "./image-slider-container.jsx";
-import MainListContainer from "./main-list.container";
+import MainListContainer from "./main-list.container.jsx";
 
 const MainContainer = () => {
 
