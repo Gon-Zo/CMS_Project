@@ -45,11 +45,9 @@ const LoginContainer = () => {
     return (
 
         <div className="login-wrap">
-
             {
                 load === true && <AwesomeComponent color={"#61dafb"}/>
             }
-
             <div className="login-box">
 
                 <div className="login-header">
