@@ -9,7 +9,7 @@ const MainListContainer = ()=>{
 
 
     return (
-        <div>
+        <div className="row">
             <TopList/>
             <TopList/>
             <TopList/>

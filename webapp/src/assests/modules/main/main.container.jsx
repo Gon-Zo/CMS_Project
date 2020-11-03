@@ -9,9 +9,7 @@ const MainContainer = () => {
         <div>
             <ImageSliderContainer/>
             <div className="container pt-5">
-                <div className="row">
-                    <MainListContainer/>
-                </div>
+                <MainListContainer/>
             </div>
         </div>
     )
