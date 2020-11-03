@@ -2,21 +2,12 @@ import logo from "../images/logo.svg";
 import {Link} from "react-router-dom";
 import React, {useEffect} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useHistory} from 'react-router-dom'
-import {useDispatch, useSelector} from "react-redux";
-import {fetchMenu} from "../modules/main/menu.action";
 
-const Header = () => {
+const Header = (props) => {
 
-    const history = useHistory()
+    const payload = props.payload
 
-    const dispatch = useDispatch()
-
-    const menuItems = useSelector(state => state.Menu).data
-
-    useEffect(() => {
-        dispatch(fetchMenu())
-    }, [])
+    const history = props.history
 
     return (
         <nav className="app-header navbar navbar-expand-lg navbar-light bg-ebony">
@@ -31,7 +22,7 @@ const Header = () => {
                 <FontAwesomeIcon className="navbar-toggler-icon" icon={['fas', 'bars']} color={"#fff"}/>
             </button>
 
-            <NavItems payload={menuItems}/>
+            <NavItems payload={payload}/>
 
             <form className="search-form form-inline">
                 <div className="btn  mr-sm-2" type="button">

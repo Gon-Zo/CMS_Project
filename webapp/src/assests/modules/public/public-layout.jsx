@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../../component/Header.jsx";
+import MenuContainer from "../main/menu-container";
 
 const PublicLayout = ({children}) => {
     console.log("check role")
     return (
-        <>
-            <Header/>
+        <div>
+            <MenuContainer/>
             {children}
-        </>
+        </div>
     )
 }
 
