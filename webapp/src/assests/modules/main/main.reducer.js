@@ -42,3 +42,9 @@ export const getToMenu = () => async (dispatch, getState) => {
       payload: axios.get('/common/menu')
    })
 }
+export const getToMenu2 = () => async (dispatch, getState) => {
+   await dispatch({
+      type: ACTION_TYPE.FETCH_MENU_DATA,
+      payload: axios.get('/common/menu')
+   })
+}
