@@ -1,53 +1,62 @@
-import React from "react";
+import React, {useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import CardList from "./card-list.jsx";
 
 const ListContainer = () => {
 
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    const size = 10
+
+    let [listType, setListType] = useState("list")
+
     return (
+
         <div className="container">
-            <div className="row mt-4">
+
+            <div
+                style={{
+                    textAlign: "end"
+                }}
+                className="mt-3">
+
+                <span className="mr-3">정렬</span>
+
+                <select>
+                    <option>1</option>
+                    <option>1</option>
+                    <option>1</option>
+                    <option>1</option>
+                    <option>1</option>
+                </select>
+
+                <div className="ml-3"
+                     style={{
+                         display: "inline-block"
+                     }}>
+                    <button
+                        style={{}}
+                        onClick={() => {
+                            const type = listType === "square" ? "list" : "square"
+                            setListType(type)
+                        }}>
+                        <FontAwesomeIcon icon={['fas', listType]}/>
+                        <span className="ml-2">
+                            {
+                                listType === "square" ? "Card" : "List"
+                            }
+                        </span>
+                    </button>
+                </div>
+
+                <CardList payload={{data: data, size: size}}/>
 
             </div>
-            <Table/>
-        </div>
-    )
-}
 
-const Table = () => {
-    return (
-        <div className="mt-4">
-            <table className="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
-            <button className="btn btn-dark btn-block">More</button>
+
         </div>
     )
+
 }
 
 export default ListContainer

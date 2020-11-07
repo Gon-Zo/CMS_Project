@@ -34,7 +34,9 @@ const Header = (props) => {
             <div>
 
                 <div id="headerBtnBox" className="mr-2 ml-2">
-                    <button className="btn btn-turquoiseBlue">Sign in</button>
+                    <button onClick={()=>{
+                        history.push("/sign-in")
+                    }} className="btn btn-turquoiseBlue">Sign in</button>
                     <button onClick={() => {
                         history.push("/login")
                     }} className="btn btn-outline-turquoiseBlue ml-2">Sign up
