@@ -10,9 +10,9 @@ const MainListContainer = ()=>{
 
     return (
         <div className="row">
-            <TopList/>
-            <TopList/>
-            <TopList/>
+            <TopList data={[0,0,0,0,0]} title={"BestTop 5"} className={"mr-5"}/>
+            <TopList data={[0,0,0,0,0]} title={"MostTop 5"}/>
+            <TopList data={[0,0,0,0,0]} title={"LikeTop 5"} className={"ml-5"}/>
         </div>
     )
 }

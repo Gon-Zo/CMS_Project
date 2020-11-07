@@ -20,7 +20,7 @@ const ImageSliderContainer = () =>{
     if (srcArray.length === 0) return <div><span>Load</span></div>
 
     return (
-        <ImageSlider data={srcArray} styles={{width: "100%", height: "35rem"}} mode={"button"}/>
+        <ImageSlider data={srcArray} styles={{width: "100%", height: "29rem"}} mode={"button"}/>
 
     )
 

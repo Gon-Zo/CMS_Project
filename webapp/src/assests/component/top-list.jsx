@@ -1,31 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 
-export const TopList = () => {
+export const TopList = (props) => {
 
-    const ListWrap = styled.ul`
-    list-style:none;
-    margin-bottom : 0;
-    `;
+    const className = props.className
 
-    const ListItem = styled.li`
-    `;
+    const data = props.data
+
+    const title = props.title
 
     return (
-        <div className="col">
+        <div className={`col ${className}`}>
+
             <div>
-                    <span>
-                       Most Best 5
-                    </span>
+                    <h3>
+                        {title}
+                    </h3>
             </div>
 
-            <ListWrap className="mt-2">
-                <ListItem>TEST1</ListItem>
-                <ListItem>TEST2</ListItem>
-                <ListItem>TEST3</ListItem>
-                <ListItem>TEST4</ListItem>
-                <ListItem>TEST5</ListItem>
-            </ListWrap>
+            <div>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Like</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        data.map((d, i) => (
+                            <tr key={i}>
+                                <th scope="row">{i + 1}</th>
+                                <td>Mark</td>
+                                <td>1</td>
+                            </tr>
+                        ))
+                    }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     )
 

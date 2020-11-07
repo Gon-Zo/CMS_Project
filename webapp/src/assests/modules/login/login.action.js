@@ -5,10 +5,10 @@ import axios from 'axios'
 export const fetchLogin = (payload , history) => {
     return (dispatch) => {
         dispatch({type: REQUEST(ACTION_TYPE.UPDATE_LOGIN)})
-        return axios.post('/api/login' , payload ,
+        return axios.post('/api/login', payload,
             {
-            headers: { "Content-Type": `application/json`}
-        }
+                headers: {"Content-Type": `application/json`}
+            }
         )
             .then(res => {
 
@@ -16,8 +16,8 @@ export const fetchLogin = (payload , history) => {
 
                 setTimeout(function () {
                     dispatch({
-                            type: SUCCESS(ACTION_TYPE.UPDATE_LOGIN),
-                            payload : res.data.message
+                        type: SUCCESS(ACTION_TYPE.UPDATE_LOGIN),
+                        payload: res.data.message
                     })
                     history.push("/")
                 }, 3000);
