@@ -7,7 +7,6 @@ const MainListContainer = ()=>{
 
     },[])
 
-
     return (
         <div className="row">
             <TopList data={[0,0,0,0,0]} title={"BestTop 5"} className={"mr-5"}/>
