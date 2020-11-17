@@ -1,9 +1,10 @@
 import React from "react";
+import RankList from "../../component/rank-list.jsx";
 
 const CategoryContainer = () => {
     return (
         <div>
-            <span>category</span>
+            <RankList/>
         </div>
     )
 }
