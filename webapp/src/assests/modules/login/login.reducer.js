@@ -1,4 +1,4 @@
-import {SUCCESS , FAILURE , REQUEST} from "../../utils/action-type.util";
+import {SUCCESS, FAILURE, REQUEST} from "../../utils/action-type.util";
 
 export const ACTION_TYPE = {
     UPDATE_LOGIN: "login/UPDATE_LOGIN",
@@ -7,8 +7,24 @@ export const ACTION_TYPE = {
 
 const initState = {
     load: false,
-    error : null,
-    data: null
+    error: null,
+    data: null,
+    login: new Reducer(false, null, null),
+    login2: {
+        load: false,
+        error: null,
+        data: null
+    }
+}
+
+class Reducer {
+
+    constructor(load = false, error = null, data = null) {
+        this.load = load
+        this.error = error
+        this.data = data
+    }
+
 }
 
 export default (state = initState, action) => {
@@ -18,7 +34,7 @@ export default (state = initState, action) => {
             return {
                 ...initState,
                 load: false,
-                payload: action.payload
+                payload: action.payload.data.message,
             }
         case REQUEST(ACTION_TYPE.UPDATE_LOGIN) :
             return {
@@ -38,5 +54,4 @@ export default (state = initState, action) => {
         default:
             return state
     }
-
 }

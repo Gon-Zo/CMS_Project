@@ -70,12 +70,10 @@ const initState = {
             show: false
         },
     ]
-
 }
 
 export default (state = initState, action) => {
     switch (action.type) {
-
         case SUCCESS(ACTION_TYPE.UPDATE_DATA):
             return {
                 ...initState,
